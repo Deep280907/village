@@ -1,0 +1,1935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mera Kabarchha - Jind, Haryana</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Ubuntu -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom styles for the Ubuntu font and smooth scrolling */
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Language display classes */
+        .lang-en { display: block; }
+        .lang-hi { display: none; }
+        .lang-hinglish { display: none; }
+
+        /* Keyframe animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Apply animations */
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .animate-slideUp {
+            animation: slideUp 0.8s ease-out forwards;
+        }
+
+        /* Styles for the marquee (Breaking News Bar) */
+        .breaking-news-bar {
+            background-color: #FACC15; /* Yellow background */
+            color: #1F2937; /* Dark text */
+            padding: 12px 0; /* Increased padding */
+            font-size: 1.2rem; /* Larger font */
+            font-weight: 700; /* Bolder text */
+            white-space: nowrap;
+            overflow: hidden;
+            position: sticky; /* Make it sticky */
+            top: 72px; /* Position below the header (approx. header height) */
+            z-index: 15; /* Between header and content */
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* More prominent shadow */
+            border-bottom: 3px solid #EAB308; /* A subtle border */
+        }
+
+        /* Chat bubble styling for Ask About Kabarchha section */
+        .chat-bubble {
+            padding: 10px 15px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            max-width: 90%;
+            display: inline-block;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .chat-bubble.user {
+            background-color: #E0E7FF; /* Light indigo for user */
+            color: #374151;
+            align-self: flex-end; /* Align to right */
+            margin-left: auto; /* Push to right */
+        }
+        .chat-bubble.bot {
+            background-color: #D1FAE5; /* Light green for bot */
+            color: #10B981;
+            align-self: flex-start; /* Align to left */
+            margin-right: auto; /* Push to left */
+        }
+
+        /* Sidebar specific styles */
+        .sidebar-nav-item {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar-nav-item:hover {
+            background-color: #EEF2FF; /* Light blue-50 */
+            color: #4F46E5; /* Indigo-600 */
+        }
+        .sidebar-nav-item.active {
+            background-color: #4F46E5; /* Indigo-600 */
+            color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .sidebar-nav-item.active i {
+            color: white; /* Ensure icon also changes color */
+        }
+
+        /* Styles for the main content area when a sidebar item is selected */
+        .sidebar-content-wrapper.expanded .sidebar-content {
+            width: 100%; /* Make content take full width */
+            margin-left: 0; /* Remove left margin */
+        }
+        /* Hide the sidebar itself when content is expanded for a "page-like" feel */
+        .sidebar-content-wrapper.expanded .sidebar-nav {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 text-gray-800">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-lg py-4 px-6 md:px-12 sticky top-0 w-full z-20 rounded-b-xl">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Village Name/Logo -->
+            <a href="#" class="flex items-center space-x-3">
+                <img src="https://placehold.co/40x40/6366F1/FFFFFF?text=Logo" alt="Kabarchha Logo" class="h-10 w-10 rounded-full shadow-md">
+                <span class="text-2xl md:text-3xl font-bold text-indigo-700 hover:text-indigo-900 transition duration-300">
+                    <span class="lang-en">Mera Kabarchha</span>
+                    <span class="lang-hi">मेरा कबरछा</span>
+                    <span class="lang-hinglish">Mera Kabarchha</span>
+                </span>
+            </a>
+
+            <!-- Language Toggle Button -->
+            <button id="langToggle" class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-full shadow-md transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75">
+                <span class="lang-en">हिंदी</span>
+                <span class="lang-hi">English</span>
+                <span class="lang-hinglish">हिंदी</span> <!-- This will show Hindi text on the button when Hinglish is active -->
+            </button>
+        </div>
+    </header>
+
+    <!-- Auto-Scrolling Breaking News Bar -->
+    <div class="breaking-news-bar">
+        <marquee behavior="scroll" direction="left" class="py-1">
+            <span class="lang-en">🌟 Kabarchha School will reopen from 20th July | 🧑‍🌾 Farmers' meet on 25th July at Panchayat Bhawan | 💉 Free Health Camp on 1st August!</span>
+            <span class="lang-hi">🌟 कबरछा स्कूल 20 जुलाई से फिर से खुलेगा | 🧑‍🌾 किसानों की बैठक 25 जुलाई को पंचायत भवन में | 💉 1 अगस्त को निःशुल्क स्वास्थ्य शिविर!</span>
+            <span class="lang-hinglish">🌟 Kabarchha School 20 July se fir se khulega | 🧑‍🌾 Kisano ki meeting 25 July ko Panchayat Bhawan mein | 💉 1 August ko Nishulk Health Camp!</span>
+        </marquee>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center text-center bg-gradient-to-br from-green-400 to-blue-500 mt-[112px]"> <!-- Adjusted margin-top for sticky header and marquee -->
+        <div class="absolute inset-0 opacity-20"></div>
+        <div class="relative z-10 text-white p-6 md:p-10 bg-black bg-opacity-40 rounded-xl shadow-2xl max-w-4xl mx-4 animate-fadeIn">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+                <span class="lang-en">Welcome to Kabarchha!</span>
+                <span class="lang-hi">कबरछा में आपका स्वागत है!</span>
+                <span class="lang-hinglish">Kabarchha mein aapka swagat hai!</span>
+            </h1>
+            <p class="text-xl md:text-3xl font-bold text-green-300 mb-4">
+                <span class="lang-en">Ekta, Samriddhi, Vikas</span>
+                <span class="lang-hi">एकता, समृद्धि, विकास</span>
+                <span class="lang-hinglish">Ekta, Samriddhi, Vikas</span>
+            </p>
+            <p class="text-lg md:text-2xl font-light mb-8">
+                <span class="lang-en">A serene village nestled in the heart of Jind, Haryana.</span>
+                <span class="lang-hi">जींद, हरियाणा के केंद्र में बसा एक शांत गाँव।</span>
+                <span class="lang-hinglish">Jind, Haryana ke center mein basa ek shant gaon.</span>
+            </p>
+            <a href="#about" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75">
+                <span class="lang-en">Explore More</span>
+                <span class="lang-hi">और जानें</span>
+                <span class="lang-hinglish">Aur jaanein</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Weather Widget Section -->
+    <section id="weather-widget" class="py-16 md:py-24 px-6 md:px-12 bg-white rounded-xl shadow-xl mx-auto my-8 max-w-6xl animate-slideUp">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-bold text-indigo-700 mb-12">
+                <span class="lang-en">Kabarchha Weather</span>
+                <span class="lang-hi">कबरछा मौसम</span>
+                <span class="lang-hinglish">Kabarchha Mausam</span>
+            </h2>
+            <iframe src="https://forecast7.com/en/29d4326d14/kabarchha/" frameborder="0" width="100%" height="150" style="border-radius: 10px; max-width: 600px; margin: auto; display: block;"></iframe>
+            <p class="text-sm text-gray-600 mt-4">
+                <span class="lang-en">Live weather information for Kabarchha, helpful for daily planning and farming activities.</span>
+                <span class="lang-hi">कबरछा के लिए लाइव मौसम की जानकारी, दैनिक योजना और कृषि गतिविधियों के लिए उपयोगी।</span>
+                <span class="lang-hinglish">Kabarchha ke liye live mausam ki jaankari, daily planning aur farming activities ke liye useful.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 px-6 md:px-12 bg-blue-50 rounded-xl shadow-xl mx-auto my-8 max-w-6xl animate-slideUp">
+        <div class="container mx-auto flex flex-col md:flex-row items-center gap-8">
+            <div class="md:w-1/2">
+                <h2 class="text-3xl md:text-5xl font-bold text-indigo-700 mb-6">
+                    <span class="lang-en">About Kabarchha</span>
+                    <span class="lang-hi">कबरछा के बारे में</span>
+                    <span class="lang-hinglish">Kabarchha ke baare mein</span>
+                </h2>
+                <p class="text-base md:text-lg leading-relaxed mb-4">
+                    <span class="lang-en">Kabarchha is a vibrant village located in the Jind district of Haryana, India. It falls under the governance of the Gram Panchayat system. The village is strategically positioned, offering both the tranquility of rural life and accessibility to nearby towns. Its geographical coordinates are approximately 29.32° N latitude and 76.31° E longitude, and the pincode for Kabarchha is 126102.</span>
+                    <span class="lang-hi">कबरछा भारत के हरियाणा राज्य के जींद जिले में स्थित एक जीवंत गाँव है। यह ग्राम पंचायत प्रणाली के अधीन आता है। गाँव रणनीतिक रूप से स्थित है, जो ग्रामीण जीवन की शांति और आस-पास के कस्बों तक पहुँच दोनों प्रदान करता है। इसके भौगोलिक निर्देशांक लगभग 29.32° उत्तरी अक्षांश और 76.31° पूर्वी देशांतर हैं, और कबरछा का पिनकोड 126102 है।</span>
+                    <span class="lang-hinglish">Kabarchha Bharat ke Haryana state ke Jind district mein located ek vibrant gaon hai. Yeh Gram Panchayat system ke under aata hai. Gaon strategically positioned hai, jo rural life ki shanti aur nearby towns tak accessibility dono provide karta hai. Iske geographical coordinates approx 29.32° N latitude aur 76.31° E longitude hain, aur Kabarchha ka pincode 126102 hai.</span>
+                </p>
+                <p class="text-base md:text-lg leading-relaxed">
+                    <span class="lang-en">Known for its rich agricultural landscape and warm, welcoming community, Kabarchha embodies the true spirit of rural Haryana. The village boasts fertile lands, primarily cultivating wheat, rice, and various vegetables, contributing significantly to the region's economy. Historically, Kabarchha has a deep-rooted past, with tales of ancient settlements and local heroes passed down through generations. The village maintains a harmonious blend of traditional values and modern advancements, making it a unique place to live and visit. Its peaceful environment and friendly residents make it a perfect example of India's diverse rural tapestry.</span>
+                    <span class="lang-hi">अपने समृद्ध कृषि परिदृश्य और गर्मजोशी भरे, स्वागत करने वाले समुदाय के लिए जाना जाने वाला कबरछा ग्रामीण हरियाणा की सच्ची भावना का प्रतीक है। गाँव में उपजाऊ भूमि है, जहाँ मुख्य रूप से गेहूँ, चावल और विभिन्न सब्जियाँ उगाई जाती हैं, जो क्षेत्र की अर्थव्यवस्था में महत्वपूर्ण योगदान देती हैं। ऐतिहासिक रूप से, कबरछा का एक गहरा अतीत है, जिसमें प्राचीन बस्तियों और स्थानीय नायकों की कहानियाँ पीढ़ियों से चली आ रही हैं। गाँव पारंपरिक मूल्यों और आधुनिक प्रगति का एक सामंजस्यपूर्ण मिश्रण बनाए रखता है, जिससे यह रहने और घूमने के लिए एक अनूठी जगह बन जाता है। इसका शांतिपूर्ण वातावरण और मिलनसार निवासी इसे भारत की विविध ग्रामीण टेपेस्ट्री का एक आदर्श उदाहरण बनाते हैं।</span>
+                    <span class="lang-hinglish">Apne rich agricultural landscape aur warm, welcoming community ke liye jaana jaane wala Kabarchha rural Haryana ki true spirit ka prateek hai. Gaon mein fertile lands hain, primarily wheat, rice, aur various vegetables cultivate ki jaati hain, jo region ki economy mein significantly contribute karti hain. Historically, Kabarchha ka ek deep-rooted past hai, jismein ancient settlements aur local heroes ki tales generations se pass down hoti rahi hain. Gaon traditional values aur modern advancements ka ek harmonious blend maintain karta hai, making it a unique place to live and visit. Iska peaceful environment aur friendly residents ise India ki diverse rural tapestry ka ek perfect example banate hain.</span>
+                </p>
+            </div>
+            <div class="md:w-1/2">
+                <img src="https://placehold.co/600x400/6366F1/FFFFFF?text=Kabarchha+Village+View" alt="Kabarchha Village View" class="rounded-xl shadow-lg w-full h-auto object-cover transform hover:scale-105 transition duration-500">
+            </div>
+        </div>
+    </section>
+
+    <!-- Population Data Section -->
+    <section id="population-data" class="py-16 md:py-24 px-6 md:px-12 bg-white rounded-xl shadow-xl mx-auto my-8 max-w-6xl animate-slideUp">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-bold text-indigo-700 mb-12">
+                <span class="lang-en">Population Data</span>
+                <span class="lang-hi">जनसंख्या डेटा</span>
+                <span class="lang-hinglish">Jansankhya Data</span>
+            </h2>
+            <div class="overflow-x-auto rounded-lg shadow-md">
+                <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                    <thead class="bg-indigo-600 text-white">
+                        <tr>
+                            <th class="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider rounded-tl-lg">
+                                <span class="lang-en">Category</span>
+                                <span class="lang-hi">श्रेणी</span>
+                                <span class="lang-hinglish">Category</span>
+                            </th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider">
+                                <span class="lang-en">Total Population</span>
+                                <span class="lang-hi">कुल जनसंख्या</span>
+                                <span class="lang-hinglish">Total Population</span>
+                            </th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider">
+                                <span class="lang-en">Males</span>
+                                <span class="lang-hi">पुरुष</span>
+                                <span class="lang-hinglish">Purush</span>
+                            </th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider">
+                                <span class="lang-en">Females</span>
+                                <span class="lang-hi">महिलाएं</span>
+                                <span class="lang-hinglish">Mahilayein</span>
+                            </th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider rounded-tr-lg">
+                                <span class="lang-en">Literacy Rate</span>
+                                <span class="lang-hi">साक्षरता दर</span>
+                                <span class="lang-hinglish">Saksharta Dar</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50 transition duration-150">
+                            <td class="py-3 px-4 whitespace-nowrap text-gray-800">
+                                <span class="lang-en">Overall</span>
+                                <span class="lang-hi">कुल</span>
+                                <span class="lang-hinglish">Overall</span>
+                            </td>
+                            <td class="py-3 px-4 whitespace-nowrap text-gray-700">2500</td>
+                            <td class="py-3 px-4 whitespace-nowrap text-gray-700">1300</td>
+                            <td class="py-3 px-4 whitespace-nowrap text-gray-700">1200</td>
+                            <td class="py-3 px-4 whitespace-nowrap text-gray-700">75%</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition duration-150">
+                            <td class="py-3 px-4 whitespace-nowrap text-gray-800">
+                                <span class="lang-en">Scheduled Caste (SC)</span>
+                                <span class="lang-hi">अनुसूचित जाति (एससी)</span>
+                                <span class="lang-hinglish">Scheduled Caste (SC)</span>
+                            </td>
+                            <td class="py-3 px-4 whitespace-nowrap text-gray-700">350</td>
+                            <td class="py-3 px-4 whitespace-nowrap text-gray-700">180</td>
+                            <td class="py-3 px-4 whitespace-nowrap text-gray-700">170</td>
+                            <td class="py-3 px-4 whitespace-nowrap text-gray-700">68%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connectivity Section -->
+    <section id="connectivity" class="py-16 md:py-24 px-6 md:px-12 bg-blue-50 rounded-xl shadow-xl mx-auto my-8 max-w-6xl animate-slideUp">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-bold text-indigo-700 mb-12">
+                <span class="lang-en">Connectivity</span>
+                <span class="lang-hi">कनेक्टिविटी</span>
+                <span class="lang-hinglish">Connectivity</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Public Transport Card -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 flex flex-col items-center">
+                    <i class="fas fa-bus text-5xl text-indigo-600 mb-4"></i>
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+                        <span class="lang-en">Public Transport</span>
+                        <span class="lang-hi">सार्वजनिक परिवहन</span>
+                        <span class="lang-hinglish">Public Transport</span>
+                    </h3>
+                    <p class="text-gray-700 text-center">
+                        <span class="lang-en">Kabarchha is well-connected by local bus services to nearby towns like Jind (approx. 20 km) and Safidon (approx. 15 km). Buses run frequently throughout the day.</span>
+                        <span class="lang-hi">कबरछा जींद (लगभग 20 किमी) और सफीदों (लगभग 15 किमी) जैसे आस-पास के कस्बों से स्थानीय बस सेवाओं द्वारा अच्छी तरह से जुड़ा हुआ है। बसें पूरे दिन लगातार चलती रहती हैं।</span>
+                        <span class="lang-hinglish">Kabarchha local bus services se nearby towns jaise Jind (approx. 20 km) aur Safidon (approx. 15 km) se well-connected hai. Buses frequently chalti hain throughout the day.</span>
+                    </p>
+                </div>
+                <!-- Nearest Railway Station Card -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 flex flex-col items-center">
+                    <i class="fas fa-train text-5xl text-indigo-600 mb-4"></i>
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+                        <span class="lang-en">Nearest Railway Station</span>
+                        <span class="lang-hi">निकटतम रेलवे स्टेशन</span>
+                        <span class="lang-hinglish">Nearest Railway Station</span>
+                    </h3>
+                    <p class="text-gray-700 text-center">
+                        <span class="lang-en">The nearest major railway station is Jind Junction (JIND), located about 22 km from Kabarchha, providing connectivity to major cities across India.</span>
+                        <span class="lang-hi">निकटतम प्रमुख रेलवे स्टेशन जींद जंक्शन (JIND) है, जो कबरछा से लगभग 22 किमी दूर स्थित है, जो पूरे भारत के प्रमुख शहरों से कनेक्टिविटी प्रदान करता है।</span>
+                        <span class="lang-hinglish">Nearest major railway station Jind Junction (JIND) hai, jo Kabarchha se approx 22 km door hai, providing connectivity to major cities across India.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sarpanch Section -->
+    <section id="sarpanch" class="py-16 md:py-24 px-6 md:px-12 bg-white rounded-xl shadow-xl mx-auto my-8 max-w-6xl animate-slideUp">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-bold text-indigo-700 mb-12">
+                <span class="lang-en">Sarpanch & Panchayat Projects</span>
+                <span class="lang-hi">सरपंच और पंचायत परियोजनाएं</span>
+                <span class="lang-hinglish">Sarpanch & Panchayat Projects</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <!-- Current Sarpanch -->
+                <div class="bg-blue-50 p-6 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">
+                        <span class="lang-en">Current Sarpanch</span>
+                        <span class="lang-hi">वर्तमान सरपंच</span>
+                        <span class="lang-hinglish">Current Sarpanch</span>
+                    </h3>
+                    <p class="text-lg text-gray-700 mb-2">
+                        <span class="lang-en">Name: Smt. Ritu Devi</span>
+                        <span class="lang-hi">नाम: श्रीमती ऋतु देवी</span>
+                        <span class="lang-hinglish">Name: Smt. Ritu Devi</span>
+                    </p>
+                    <p class="text-lg text-gray-700">
+                        <span class="lang-en">Term: 2020 - Present</span>
+                        <span class="lang-hi">कार्यकाल: 2020 - वर्तमान</span>
+                        <span class="lang-hinglish">Term: 2020 - Present</span>
+                    </p>
+                </div>
+                <!-- Recent Panchayat Projects -->
+                <div class="bg-blue-50 p-6 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">
+                        <span class="lang-en">Recent Panchayat Projects</span>
+                        <span class="lang-hi">हाल की पंचायत परियोजनाएं</span>
+                        <span class="lang-hinglish">Recent Panchayat Projects</span>
+                    </h3>
+                    <ul class="list-disc list-inside text-lg text-gray-700">
+                        <li>
+                            <span class="lang-en">Construction of new community hall.</span>
+                            <span class="lang-hi">नए सामुदायिक भवन का निर्माण।</span>
+                            <span class="lang-hinglish">New community hall ka construction.</span>
+                        </li>
+                        <li>
+                            <span class="lang-en">Installation of street lights in main areas.</span>
+                            <span class="lang-hi">मुख्य क्षेत्रों में स्ट्रीट लाइट लगाना।</span>
+                            <span class="lang-hinglish">Main areas mein street lights lagana.</span>
+                        </li>
+                        <li>
+                            <span class="lang-en">Renovation of village pond.</span>
+                            <span class="lang-hi">गाँव के तालाब का जीर्णोद्धार।</span>
+                            <span class="lang-hinglish">Gaon ke talaab ka renovation.</span>
+                        </li>
+                        <li>
+                            <span class="lang-en">Tree plantation drive across the village.</span>
+                            <span class="lang-hi">पूरे गाँव में वृक्षारोपण अभियान।</span>
+                            <span class="lang-hinglish">Pure gaon mein tree plantation drive.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Past Sarpanchs (Optional, can be expanded) -->
+            <div class="mt-8 bg-blue-50 p-6 rounded-xl shadow-lg text-left">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">
+                    <span class="lang-en">Past Sarpanchs</span>
+                    <span class="lang-hi">पिछले सरपंच</span>
+                    <span class="lang-hinglish">Past Sarpanchs</span>
+                </h3>
+                <ul class="list-disc list-inside text-lg text-gray-700">
+                    <li>
+                        <span class="lang-en">Shri Ram Singh (2015 - 2020)</span>
+                        <span class="lang-hi">श्री राम सिंह (2015 - 2020)</span>
+                        <span class="lang-hinglish">Shri Ram Singh (2015 - 2020)</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Smt. Geeta Devi (2010 - 2015)</span>
+                        <span class="lang-hi">श्रीमती गीता देवी (2010 - 2015)</span>
+                        <span class="lang-hinglish">Smt. Geeta Devi (2010 - 2015)</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Notices Section -->
+    <section id="news-notices" class="py-16 md:py-24 px-6 md:px-12 bg-blue-50 rounded-xl shadow-xl mx-auto my-8 max-w-6xl animate-slideUp">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-bold text-indigo-700 mb-12">
+                <span class="lang-en">News & Notices</span>
+                <span class="lang-hi">समाचार और सूचनाएं</span>
+                <span class="lang-hinglish">News & Notices</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- News Item 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+                        <span class="lang-en">Village Cleanliness Drive</span>
+                        <span class="lang-hi">ग्राम स्वच्छता अभियान</span>
+                        <span class="lang-hinglish">Gram Swachhta Abhiyan</span>
+                    </h3>
+                    <p class="text-gray-700 text-sm mb-3">
+                        <span class="lang-en">Date: July 10, 2025</span>
+                        <span class="lang-hi">दिनांक: 10 जुलाई, 2025</span>
+                        <span class="lang-hinglish">Date: 10 July, 2025</span>
+                    </p>
+                    <p class="text-gray-700">
+                        <span class="lang-en">A successful village-wide cleanliness drive was conducted with active participation from all residents.</span>
+                        <span class="lang-hi">सभी निवासियों की सक्रिय भागीदारी के साथ एक सफल ग्राम-व्यापी स्वच्छता अभियान चलाया गया।</span>
+                        <span class="lang-hinglish">Sabhi residents ki active participation ke saath ek successful village-wide cleanliness drive conduct ki gayi.</span>
+                    </p>
+                </div>
+                <!-- News Item 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+                        <span class="lang-en">Panchayat Meeting Announcement</span>
+                        <span class="lang-hi">पंचायत बैठक की घोषणा</span>
+                        <span class="lang-hinglish">Panchayat Meeting Announcement</span>
+                    </h3>
+                    <p class="text-gray-700 text-sm mb-3">
+                        <span class="lang-en">Date: July 15, 2025 | Time: 10:00 AM</span>
+                        <span class="lang-hi">दिनांक: 15 जुलाई, 2025 | समय: सुबह 10:00 बजे</span>
+                        <span class="lang-hinglish">Date: 15 July, 2025 | Time: 10:00 AM</span>
+                    </p>
+                    <p class="text-gray-700">
+                        <span class="lang-en">Next Gram Panchayat meeting will be held at Panchayat Bhawan. All villagers are encouraged to attend.</span>
+                        <span class="lang-hi">अगली ग्राम पंचायत बैठक पंचायत भवन में आयोजित की जाएगी। सभी ग्रामीणों को उपस्थित रहने के लिए प्रोत्साहित किया जाता है।</span>
+                        <span class="lang-hinglish">Next Gram Panchayat meeting Panchayat Bhawan mein hogi. Sabhi villagers ko attend karne ke liye encourage kiya jaata hai.</span>
+                    </p>
+                </div>
+                <!-- News Item 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+                        <span class="lang-en">Health Camp Organized</span>
+                        <span class="lang-hi">स्वास्थ्य शिविर का आयोजन</span>
+                        <span class="lang-hinglish">Health Camp Organized</span>
+                    </h3>
+                    <p class="text-gray-700 text-sm mb-3">
+                        <span class="lang-en">Date: June 28, 2025</span>
+                        <span class="lang-hi">दिनांक: 28 जून, 2025</span>
+                        <span class="lang-hinglish">Date: 28 June, 2025</span>
+                    </p>
+                    <p class="text-gray-700">
+                        <span class="lang-en">A free health check-up camp was organized, benefiting many villagers with medical consultations.</span>
+                        <span class="lang-hi">एक निःशुल्क स्वास्थ्य जांच शिविर का आयोजन किया गया, जिससे कई ग्रामीणों को चिकित्सा परामर्श से लाभ हुआ।</span>
+                        <span class="lang-hinglish">Ek free health check-up camp organize kiya gaya, jisse kai villagers ko medical consultations se benefit hua.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore More Village Life Section (with Sidebar-like Navigation) -->
+    <section id="explore-more" class="py-16 md:py-24 px-6 md:px-12 bg-white rounded-xl shadow-xl mx-auto my-8 max-w-6xl animate-slideUp">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold text-indigo-700 text-center mb-12">
+                <span class="lang-en">Explore More Village Life</span>
+                <span class="lang-hi">गाँव के जीवन को और जानें</span>
+                <span class="lang-hinglish">Gaon ke jeevan ko aur jaanein</span>
+            </h2>
+            <div class="flex flex-col md:flex-row gap-8 sidebar-content-wrapper">
+                <!-- Sidebar Navigation -->
+                <div class="md:w-1/4 bg-blue-50 p-6 rounded-xl shadow-lg flex flex-col sidebar-nav">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">
+                        <span class="lang-en">Quick Links</span>
+                        <span class="lang-hi">त्वरित लिंक</span>
+                        <span class="lang-hinglish">Quick Links</span>
+                    </h3>
+                    <nav class="flex flex-col">
+                        <a href="#" class="sidebar-nav-item active" data-section="photo-gallery-sidebar">
+                            <i class="fas fa-images mr-3 text-indigo-600"></i>
+                            <span class="lang-en">Photo Gallery</span>
+                            <span class="lang-hi">फोटो गैलरी</span>
+                            <span class="lang-hinglish">Photo Gallery</span>
+                        </a>
+                        <a href="#" class="sidebar-nav-item" data-section="village-memories-sidebar">
+                            <i class="fas fa-camera-retro mr-3 text-indigo-600"></i>
+                            <span class="lang-en">Village Memories</span>
+                            <span class="lang-hi">ग्राम यादें</span>
+                            <span class="lang-hinglish">Village Memories</span>
+                        </a>
+                        <a href="#" class="sidebar-nav-item" data-section="health-schemes-sidebar">
+                            <i class="fas fa-heartbeat mr-3 text-indigo-600"></i>
+                            <span class="lang-en">Health & Schemes</span>
+                            <span class="lang-hi">स्वास्थ्य और योजनाएं</span>
+                            <span class="lang-hinglish">Health & Schemes</span>
+                        </a>
+                        <a href="#" class="sidebar-nav-item" data-section="services-directory-sidebar">
+                            <i class="fas fa-store mr-3 text-indigo-600"></i>
+                            <span class="lang-en">Services Directory</span>
+                            <span class="lang-hi">सेवा निर्देशिका</span>
+                            <span class="lang-hinglish">Services Directory</span>
+                        </a>
+                        <a href="#" class="sidebar-nav-item" data-section="job-skill-board-sidebar">
+                            <i class="fas fa-briefcase mr-3 text-indigo-600"></i>
+                            <span class="lang-en">Job & Skill Board</span>
+                            <span class="lang-hi">रोजगार और कौशल बोर्ड</span>
+                            <span class="lang-hinglish">Job & Skill Board</span>
+                        </a>
+                        <a href="#" class="sidebar-nav-item" data-section="learning-corner-sidebar">
+                            <i class="fas fa-book-open mr-3 text-indigo-600"></i>
+                            <span class="lang-en">Learning Corner</span>
+                            <span class="lang-hi">शिक्षण कोना</span>
+                            <span class="lang-hinglish">Learning Corner</span>
+                        </a>
+                        <a href="#" class="sidebar-nav-item" data-section="student-section-sidebar">
+                            <i class="fas fa-user-graduate mr-3 text-indigo-600"></i>
+                            <span class="lang-en">Student Corner</span>
+                            <span class="lang-hi">छात्र कोना</span>
+                            <span class="lang-hinglish">Student Corner</span>
+                        </a>
+                        <a href="#" class="sidebar-nav-item" data-section="ask-kabarchha-sidebar">
+                            <i class="fas fa-robot mr-3 text-indigo-600"></i>
+                            <span class="lang-en">Ask About Kabarchha</span>
+                            <span class="lang-hi">कबरछा के बारे में पूछें</span>
+                            <span class="lang-hinglish">Ask About Kabarchha</span>
+                        </a>
+                        <a href="#" class="sidebar-nav-item" data-section="event-calendar-sidebar">
+                            <i class="fas fa-calendar-alt mr-3 text-indigo-600"></i>
+                            <span class="lang-en">Event Calendar</span>
+                            <span class="lang-hi">कार्यक्रम कैलेंडर</span>
+                            <span class="lang-hinglish">Event Calendar</span>
+                        </a>
+                        <a href="#" class="sidebar-nav-item" data-section="villager-profiles-sidebar">
+                            <i class="fas fa-users mr-3 text-indigo-600"></i>
+                            <span class="lang-en">Villager Profiles</span>
+                            <span class="lang-hi">ग्रामवासी प्रोफाइल</span>
+                            <span class="lang-hinglish">Villager Profiles</span>
+                        </a>
+                        <a href="#" class="sidebar-nav-item" data-section="local-businesses-sidebar">
+                            <i class="fas fa-handshake mr-3 text-indigo-600"></i>
+                            <span class="lang-en">Local Businesses</span>
+                            <span class="lang-hi">स्थानीय व्यवसाय</span>
+                            <span class="lang-hinglish">Local Businesses</span>
+                        </a>
+                        <a href="#" class="sidebar-nav-item" data-section="community-forum-sidebar">
+                            <i class="fas fa-comments mr-3 text-indigo-600"></i>
+                            <span class="lang-en">Community Forum</span>
+                            <span class="lang-hi">सामुदायिक मंच</span>
+                            <span class="lang-hinglish">Community Forum</span>
+                        </a>
+                        <a href="#" class="sidebar-nav-item" data-section="lost-found-sidebar">
+                            <i class="fas fa-search-dollar mr-3 text-indigo-600"></i>
+                            <span class="lang-en">Lost & Found</span>
+                            <span class="lang-hi">खोया पाया</span>
+                            <span class="lang-hinglish">Khoya Paya</span>
+                        </a>
+                        <a href="#" class="sidebar-nav-item" data-section="govt-schemes-sidebar">
+                            <i class="fas fa-file-alt mr-3 text-indigo-600"></i>
+                            <span class="lang-en">Govt. Schemes Hub</span>
+                            <span class="lang-hi">सरकारी योजनाएं</span>
+                            <span class="lang-hinglish">Govt. Schemes Hub</span>
+                        </a>
+                        <a href="#" class="sidebar-nav-item" data-section="donation-sidebar">
+                            <i class="fas fa-hand-holding-heart mr-3 text-indigo-600"></i>
+                            <span class="lang-en">Donation & Support</span>
+                            <span class="lang-hi">दान और समर्थन</span>
+                            <span class="lang-hinglish">Donation & Support</span>
+                        </a>
+                        <a href="#" class="sidebar-nav-item" data-section="farmers-corner-sidebar">
+                            <i class="fas fa-tractor mr-3 text-indigo-600"></i>
+                            <span class="lang-en">Farmer's Corner</span>
+                            <span class="lang-hi">किसान कोना</span>
+                            <span class="lang-hinglish">Kisan Corner</span>
+                        </a>
+                        <a href="#" class="sidebar-nav-item" data-section="promoted-content-sidebar">
+                            <i class="fas fa-bullhorn mr-3 text-indigo-600"></i>
+                            <span class="lang-en">Promoted Content</span>
+                            <span class="lang-hi">प्रचारित सामग्री</span>
+                            <span class="lang-hinglish">Promoted Content</span>
+                        </a>
+                        <a href="#" class="sidebar-nav-item" data-section="feedback-sidebar">
+                            <i class="fas fa-comment-dots mr-3 text-indigo-600"></i>
+                            <span class="lang-en">Feedback</span>
+                            <span class="lang-hi">प्रतिक्रिया</span>
+                            <span class="lang-hinglish">Feedback</span>
+                        </a>
+                        <a href="#" class="sidebar-nav-item" data-section="contact-sidebar">
+                            <i class="fas fa-address-book mr-3 text-indigo-600"></i>
+                            <span class="lang-en">Contact & Location</span>
+                            <span class="lang-hi">संपर्क और स्थान</span>
+                            <span class="lang-hinglish">Contact & Location</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- Main Content Area for Sidebar Sections -->
+                <div class="md:w-3/4 bg-blue-50 p-6 rounded-xl shadow-lg sidebar-main-content">
+                    <!-- Back to Overview Button (Initially hidden) -->
+                    <button id="backToOverviewBtn" class="hidden mb-6 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full shadow-md transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75">
+                        <i class="fas fa-arrow-left mr-2"></i>
+                        <span class="lang-en">Back to Overview</span>
+                        <span class="lang-hi">वापस अवलोकन पर</span>
+                        <span class="lang-hinglish">Wapas Overview par</span>
+                    </button>
+
+                    <!-- Photo Gallery Content -->
+                    <div id="photo-gallery-sidebar" class="sidebar-content">
+                        <h3 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">
+                            <span class="lang-en">Photo Gallery</span>
+                            <span class="lang-hi">फोटो गैलरी</span>
+                            <span class="lang-hinglish">Photo Gallery</span>
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <img src="https://placehold.co/400x250/3B82F6/FFFFFF?text=Dada+Kherda+Temple" alt="Dada Kherda Temple" class="rounded-md mb-3 w-full h-40 object-cover">
+                                <p class="text-gray-700 font-semibold text-sm">
+                                    <span class="lang-en">Dada Kherda Temple</span>
+                                    <span class="lang-hi">दादा खेड़ा मंदिर</span>
+                                    <span class="lang-hinglish">Dada Kherda Mandir</span>
+                                </p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <img src="https://placehold.co/400x250/3B82F6/FFFFFF?text=Panchayat+Bhawan" alt="Panchayat Bhawan" class="rounded-md mb-3 w-full h-40 object-cover">
+                                <p class="text-gray-700 font-semibold text-sm">
+                                    <span class="lang-en">Panchayat Bhawan</span>
+                                    <span class="lang-hi">पंचायत भवन</span>
+                                    <span class="lang-hinglish">Panchayat Bhawan</span>
+                                </p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <img src="https://placehold.co/400x250/3B82F6/FFFFFF?text=Village+School" alt="Village School" class="rounded-md mb-3 w-full h-40 object-cover">
+                                <p class="text-gray-700 font-semibold text-sm">
+                                    <span class="lang-en">Village School</span>
+                                    <span class="lang-hi">गाँव का स्कूल</span>
+                                    <span class="lang-hinglish">Gaon ka School</span>
+                                </p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <img src="https://placehold.co/400x250/3B82F6/FFFFFF?text=Agricultural+Fields" alt="Agricultural Fields" class="rounded-md mb-3 w-full h-40 object-cover">
+                                <p class="text-gray-700 font-semibold text-sm">
+                                    <span class="lang-en">Lush Agricultural Fields</span>
+                                    <span class="lang-hi">हरे-भरे कृषि क्षेत्र</span>
+                                    <span class="lang-hinglish">Hare-bhare Agricultural Fields</span>
+                                </p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <img src="https://placehold.co/400x250/3B82F6/FFFFFF?text=Village+Pond" alt="Village Pond" class="rounded-md mb-3 w-full h-40 object-cover">
+                                <p class="text-gray-700 font-semibold text-sm">
+                                    <span class="lang-en">The Serene Village Pond</span>
+                                    <span class="lang-hi">शांत गाँव का तालाब</span>
+                                    <span class="lang-hinglish">Shant Gaon ka Talaab</span>
+                                </p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <img src="https://placehold.co/400x250/3B82F6/FFFFFF?text=Community+Gather" alt="Community Gathering" class="rounded-md mb-3 w-full h-40 object-cover">
+                                <p class="text-gray-700 font-semibold text-sm">
+                                    <span class="lang-en">Community Gathering</span>
+                                    <span class="lang-hi">सामुदायिक सभा</span>
+                                    <span class="lang-hinglish">Community Gathering</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Village Memories Content -->
+                    <div id="village-memories-sidebar" class="sidebar-content hidden">
+                        <h3 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">
+                            <span class="lang-en">Village Memories (Old Photos Archive)</span>
+                            <span class="lang-hi">ग्राम यादें (पुरानी तस्वीरों का संग्रह)</span>
+                            <span class="lang-hinglish">Village Memories (Purani Photos ka Archive)</span>
+                        </h3>
+                        <p class="text-lg text-gray-700 mb-8 text-center">
+                            <span class="lang-en">A collection of cherished old photographs from Kabarchha, preserving our history and nostalgic moments. We invite villagers to share their old photos to enrich this archive!</span>
+                            <span class="lang-hi">कबरछा से पुरानी तस्वीरों का एक संग्रह, जो हमारे इतिहास और यादगार पलों को सहेजता है। हम ग्रामीणों को इस संग्रह को समृद्ध करने के लिए अपनी पुरानी तस्वीरें साझा करने के लिए आमंत्रित करते हैं!</span>
+                            <span class="lang-hinglish">Kabarchha se purani photos ka ek collection, jo hamari history aur nostalgic moments ko preserve karta hai. Hum villagers ko apni purani photos share karne ke liye invite karte hain to enrich this archive!</span>
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <img src="https://placehold.co/400x300/FACC15/FFFFFF?text=1980s+Village+Life" alt="1980s Village Life" class="rounded-md mb-3 w-full h-40 object-cover">
+                                <p class="text-gray-700 font-semibold text-sm">
+                                    <span class="lang-en">Village Life in the 1980s</span>
+                                    <span class="lang-hi">1980 के दशक में गाँव का जीवन</span>
+                                    <span class="lang-hinglish">1980s mein Gaon ka Jeevan</span>
+                                </p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <img src="https://placehold.co/400x300/FACC15/FFFFFF?text=Old+Festival" alt="Old Festival Celebration" class="rounded-md mb-3 w-full h-40 object-cover">
+                                <p class="text-gray-700 font-semibold text-sm">
+                                    <span class="lang-en">Festival Celebration (Early 2000s)</span>
+                                    <span class="lang-hi">त्योहार समारोह (2000 के दशक की शुरुआत)</span>
+                                    <span class="lang-hinglish">Festival Celebration (Early 2000s)</span>
+                                </p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <img src="https://placehold.co/400x300/FACC15/FFFFFF?text=Old+School+Photo" alt="Old School Photo" class="rounded-md mb-3 w-full h-40 object-cover">
+                                <p class="text-gray-700 font-semibold text-sm">
+                                    <span class="lang-en">Kabarchha School - Batch of '95</span>
+                                    <span class="lang-hi">कबरछा स्कूल - '95 बैच</span>
+                                    <span class="lang-hinglish">Kabarchha School - Batch of '95</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Health & Government Scheme Info Content -->
+                    <div id="health-schemes-sidebar" class="sidebar-content hidden">
+                        <h3 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">
+                            <span class="lang-en">Village Health & Government Schemes</span>
+                            <span class="lang-hi">ग्राम स्वास्थ्य और सरकारी योजनाएं</span>
+                            <span class="lang-hinglish">Village Health & Govt. Schemes</span>
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-4">
+                                    <span class="lang-en">Health Center Information</span>
+                                    <span class="lang-hi">स्वास्थ्य केंद्र की जानकारी</span>
+                                    <span class="lang-hinglish">Health Center Information</span>
+                                </h4>
+                                <p class="text-lg text-gray-700 mb-2">
+                                    <span class="lang-en">Kabarchha Health Center Hours: 9:00 AM - 5:00 PM (Mon-Sat)</span>
+                                    <span class="lang-hi">कबरछा स्वास्थ्य केंद्र का समय: सुबह 9:00 बजे - शाम 5:00 बजे (सोम-शनि)</span>
+                                    <span class="lang-hinglish">Kabarchha Health Center Hours: 9:00 AM - 5:00 PM (Mon-Sat)</span>
+                                </p>
+                                <p class="text-lg text-gray-700 mb-2">
+                                    <span class="lang-en">Contact: +91 99887 76655</span>
+                                    <span class="lang-hi">संपर्क: +91 99887 76655</span>
+                                    <span class="lang-hinglish">Contact: +91 99887 76655</span>
+                                </p>
+                                <p class="text-lg text-gray-700">
+                                    <span class="lang-en">Services: Basic check-ups, vaccinations, first aid.</span>
+                                    <span class="lang-hi">सेवाएं: सामान्य जांच, टीकाकरण, प्राथमिक उपचार।</span>
+                                    <span class="lang-hinglish">Services: Basic check-ups, vaccinations, first aid.</span>
+                                </p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-4">
+                                    <span class="lang-en">Government Schemes</span>
+                                    <span class="lang-hi">सरकारी योजनाएं</span>
+                                    <span class="lang-hinglish">Government Schemes</span>
+                                </h4>
+                                <ul class="list-disc list-inside text-lg text-gray-700">
+                                    <li>
+                                        <span class="lang-en">Ayushman Bharat Yojana: Free healthcare for eligible families.</span>
+                                        <span class="lang-hi">आयुष्मान भारत योजना: पात्र परिवारों के लिए निःशुल्क स्वास्थ्य सेवा।</span>
+                                        <span class="lang-hinglish">Ayushman Bharat Yojana: Eligible families ke liye free healthcare.</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-en">Pradhan Mantri Awas Yojana: Housing for all.</span>
+                                        <span class="lang-hi">प्रधानमंत्री आवास योजना: सभी के लिए आवास।</span>
+                                        <span class="lang-hinglish">Pradhan Mantri Awas Yojana: Sabhi ke liye housing.</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-en">Kisan Samman Nidhi: Financial support for farmers.</span>
+                                        <span class="lang-hi">किसान सम्मान निधि: किसानों के लिए वित्तीय सहायता।</span>
+                                        <span class="lang-hinglish">Kisan Samman Nidhi: Farmers ke liye financial support.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-8 bg-white p-6 rounded-xl shadow-lg text-left">
+                            <h4 class="text-xl font-semibold text-gray-900 mb-4">
+                                <span class="lang-en">Monthly Health Camp Announcements</span>
+                                <span class="lang-hi">मासिक स्वास्थ्य शिविर घोषणाएं</span>
+                                <span class="lang-hinglish">Monthly Health Camp Announcements</span>
+                            </h4>
+                            <p class="text-lg text-gray-700">
+                                <span class="lang-en">Next Free Dental Check-up Camp: August 15, 2025, at Village Health Center.</span>
+                                <span class="lang-hi">अगला निःशुल्क दंत जांच शिविर: 15 अगस्त, 2025 को ग्राम स्वास्थ्य केंद्र में।</span>
+                                <span class="lang-hinglish">Next Free Dental Check-up Camp: 15 August, 2025, Village Health Center mein.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Village Services Directory Content -->
+                    <div id="services-directory-sidebar" class="sidebar-content hidden">
+                        <h3 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">
+                            <span class="lang-en">Village Services Directory</span>
+                            <span class="lang-hi">ग्राम सेवा निर्देशिका</span>
+                            <span class="lang-hinglish">Village Services Directory</span>
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <h4 class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+                                    <span class="lang-en">Sharma Kirana Store</span>
+                                    <span class="lang-hi">शर्मा किराना स्टोर</span>
+                                    <span class="lang-hinglish">Sharma Kirana Store</span>
+                                </h4>
+                                <p class="text-gray-700 mb-1"><i class="fas fa-phone-alt mr-2 text-indigo-600"></i>+91 91234 56789</p>
+                                <p class="text-gray-700"><i class="fas fa-clock mr-2 text-indigo-600"></i>9:00 AM - 9:00 PM</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <h4 class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+                                    <span class="lang-en">Ramesh Electrician</span>
+                                    <span class="lang-hi">रमेश इलेक्ट्रीशियन</span>
+                                    <span class="lang-hinglish">Ramesh Electrician</span>
+                                </h4>
+                                <p class="text-gray-700 mb-1"><i class="fas fa-phone-alt mr-2 text-indigo-600"></i>+91 92345 67890</p>
+                                <p class="text-gray-700"><i class="fas fa-clock mr-2 text-indigo-600"></i>Available on call</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <h4 class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+                                    <span class="lang-en">Prakash Barber Shop</span>
+                                    <span class="lang-hi">प्रकाश नाई की दुकान</span>
+                                    <span class="lang-hinglish">Prakash Barber Shop</span>
+                                </h4>
+                                <p class="text-gray-700 mb-1"><i class="fas fa-phone-alt mr-2 text-indigo-600"></i>+91 93456 78901</p>
+                                <p class="text-gray-700"><i class="fas fa-clock mr-2 text-indigo-600"></i>10:00 AM - 8:00 PM</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <h4 class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+                                    <span class="lang-en">Jai Kisan Tractor Repair</span>
+                                    <span class="lang-hi">जय किसान ट्रैक्टर मरम्मत</span>
+                                    <span class="lang-hinglish">Jai Kisan Tractor Repair</span>
+                                </h4>
+                                <p class="text-gray-700 mb-1"><i class="fas fa-phone-alt mr-2 text-indigo-600"></i>+91 94567 89012</p>
+                                <p class="text-gray-700"><i class="fas fa-clock mr-2 text-indigo-600"></i>8:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job or Skill Sharing Board Content -->
+                    <div id="job-skill-board-sidebar" class="sidebar-content hidden">
+                        <h3 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">
+                            <span class="lang-en">Job & Skill Sharing Board</span>
+                            <span class="lang-hi">रोजगार और कौशल बोर्ड</span>
+                            <span class="lang-hinglish">Job & Skill Sharing Board</span>
+                        </h3>
+                        <p class="text-lg text-gray-700 mb-8 text-center">
+                            <span class="lang-en">Connecting villagers for work opportunities and promoting local skills.</span>
+                            <span class="lang-hi">कार्य अवसरों के लिए ग्रामीणों को जोड़ना और स्थानीय कौशल को बढ़ावा देना।</span>
+                            <span class="lang-hinglish">Villagers ko work opportunities ke liye connect karna aur local skills ko promote karna.</span>
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white p-6 rounded-xl shadow-lg text-left">
+                                <h4 class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+                                    <span class="lang-en">Farming Labor Needed</span>
+                                    <span class="lang-hi">खेती के लिए मजदूर चाहिए</span>
+                                    <span class="lang-hinglish">Farming Labor Needed</span>
+                                </h4>
+                                <p class="text-gray-700 mb-1"><i class="fas fa-user mr-2 text-indigo-600"></i>Contact: Suresh Kumar</p>
+                                <p class="text-gray-700 mb-1"><i class="fas fa-phone-alt mr-2 text-indigo-600"></i>+91 90000 11111</p>
+                                <p class="text-gray-700"><i class="fas fa-info-circle mr-2 text-indigo-600"></i>For wheat harvesting, daily wages.</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg text-left">
+                                <h4 class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+                                    <span class="lang-en">Tailoring Services Available</span>
+                                    <span class="lang-hi">सिलाई सेवाएं उपलब्ध हैं</span>
+                                    <span class="lang-hinglish">Tailoring Services Available</span>
+                                </h4>
+                                <p class="text-gray-700 mb-1"><i class="fas fa-user mr-2 text-indigo-600"></i>Provider: Smt. Lakshmi Devi</p>
+                                <p class="text-gray-700 mb-1"><i class="fas fa-phone-alt mr-2 text-indigo-600"></i>+91 90000 22222</p>
+                                <p class="text-gray-700"><i class="fas fa-info-circle mr-2 text-indigo-600"></i>All types of stitching and alterations.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Village Learning Corner Content -->
+                    <div id="learning-corner-sidebar" class="sidebar-content hidden">
+                        <h3 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">
+                            <span class="lang-en">Village Learning Corner</span>
+                            <span class="lang-hi">ग्राम शिक्षण कोना</span>
+                            <span class="lang-hinglish">Village Learning Corner</span>
+                        </h3>
+                        <p class="text-lg text-gray-700 mb-8 text-center">
+                            <span class="lang-en">Empowering our community with essential digital literacy tips and valuable knowledge.</span>
+                            <span class="lang-hi">आवश्यक डिजिटल साक्षरता युक्तियों और मूल्यवान ज्ञान के साथ हमारे समुदाय को सशक्त बनाना।</span>
+                            <span class="lang-hinglish">Hamare community ko essential digital literacy tips aur valuable knowledge ke saath empower karna.</span>
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="bg-white p-6 rounded-xl shadow-lg text-left">
+                                <h4 class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+                                    <span class="lang-en">How to Pay Bills Online</span>
+                                    <span class="lang-hi">ऑनलाइन बिलों का भुगतान कैसे करें</span>
+                                    <span class="lang-hinglish">Online Bills Pay kaise karein</span>
+                                </h4>
+                                <p class="text-gray-700 text-sm mb-3">
+                                    <span class="lang-en">Date: July 5, 2025</span>
+                                    <span class="lang-hi">दिनांक: 5 जुलाई, 2025</span>
+                                    <span class="lang-hinglish">Date: 5 July, 2025</span>
+                                </p>
+                                <p class="text-gray-700">
+                                    <span class="lang-en">A step-by-step guide to paying electricity, water, and phone bills digitally.</span>
+                                    <span class="lang-hi">बिजली, पानी और फोन बिलों का डिजिटल रूप से भुगतान करने के लिए एक चरण-दर-चरण मार्गदर्शिका।</span>
+                                    <span class="lang-hinglish">Electricity, water, aur phone bills digitally pay karne ke liye step-by-step guide.</span>
+                                </p>
+                                <a href="#" class="mt-4 inline-block text-indigo-600 hover:text-indigo-800 font-medium">
+                                    <span class="lang-en">Read More</span>
+                                    <span class="lang-hi">और पढ़ें</span>
+                                    <span class="lang-hinglish">Read More</span>
+                                </a>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg text-left">
+                                <h4 class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+                                    <span class="lang-en">Understanding UPI Payments</span>
+                                    <span class="lang-hi">यूपीआई भुगतान को समझना</span>
+                                    <span class="lang-hinglish">UPI Payments ko samjhna</span>
+                                </h4>
+                                <p class="text-gray-700 text-sm mb-3">
+                                    <span class="lang-en">Date: June 20, 2025</span>
+                                    <span class="lang-hi">दिनांक: 20 जून, 2025</span>
+                                    <span class="lang-hinglish">Date: 20 June, 2025</span>
+                                </p>
+                                <p class="text-gray-700">
+                                    <span class="lang-en">Learn how to send and receive money securely using UPI apps.</span>
+                                    <span class="lang-hi">यूपीआई ऐप्स का उपयोग करके सुरक्षित रूप से पैसे भेजने और प्राप्त करने का तरीका जानें।</span>
+                                    <span class="lang-hinglish">UPI apps use karke money securely send aur receive karna seekhein.</span>
+                                </p>
+                                <a href="#" class="mt-4 inline-block text-indigo-600 hover:text-indigo-800 font-medium">
+                                    <span class="lang-en">Read More</span>
+                                    <span class="lang-hi">और पढ़ें</span>
+                                    <span class="lang-hinglish">Read More</span>
+                                </a>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg text-left">
+                                <h4 class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+                                    <span class="lang-en">Online Safety Tips</span>
+                                    <span class="lang-hi">ऑनलाइन सुरक्षा युक्तियाँ</span>
+                                    <span class="lang-hinglish">Online Safety Tips</span>
+                                </h4>
+                                <p class="text-gray-700 text-sm mb-3">
+                                    <span class="lang-en">Date: June 1, 2025</span>
+                                    <span class="lang-hi">दिनांक: 1 जून, 2025</span>
+                                    <span class="lang-hinglish">Date: 1 June, 2025</span>
+                                </p>
+                                <p class="text-gray-700">
+                                    <span class="lang-en">Important tips to stay safe from online fraud and scams.</span>
+                                    <span class="lang-hi">ऑनलाइन धोखाधड़ी और घोटालों से सुरक्षित रहने के लिए महत्वपूर्ण युक्तियाँ।</span>
+                                    <span class="lang-hinglish">Online fraud aur scams se safe rehne ke liye important tips.</span>
+                                </p>
+                                <a href="#" class="mt-4 inline-block text-indigo-600 hover:text-indigo-800 font-medium">
+                                    <span class="lang-en">Read More</span>
+                                    <span class="lang-hi">और पढ़ें</span>
+                                    <span class="lang-hinglish">Read More</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Student Section Content -->
+                    <div id="student-section-sidebar" class="sidebar-content hidden">
+                        <h3 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">
+                            <span class="lang-en">Student Corner</span>
+                            <span class="lang-hi">छात्र कोना</span>
+                            <span class="lang-hinglish">Student Corner</span>
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-4">
+                                    <span class="lang-en">School Information</span>
+                                    <span class="lang-hi">स्कूल की जानकारी</span>
+                                    <span class="lang-hinglish">School Information</span>
+                                </h4>
+                                <p class="text-lg text-gray-700 mb-2">
+                                    <span class="lang-en">School Hours: 8:00 AM - 2:00 PM (Mon-Sat)</span>
+                                    <span class="lang-hi">स्कूल का समय: सुबह 8:00 बजे - दोपहर 2:00 बजे (सोम-शनि)</span>
+                                    <span class="lang-hinglish">School Hours: 8:00 AM - 2:00 PM (Mon-Sat)</span>
+                                </p>
+                                <p class="text-lg text-gray-700 mb-2">
+                                    <span class="lang-en">Upcoming Holidays: August 15 (Independence Day)</span>
+                                    <span class="lang-hi">आगामी अवकाश: 15 अगस्त (स्वतंत्रता दिवस)</span>
+                                    <span class="lang-hinglish">Upcoming Holidays: 15 August (Independence Day)</span>
+                                </p>
+                                <p class="text-lg text-gray-700">
+                                    <span class="lang-en">Scholarship Info: Check notice board for latest updates.</span>
+                                    <span class="lang-hi">छात्रवृत्ति जानकारी: नवीनतम अपडेट के लिए नोटिस बोर्ड देखें।</span>
+                                    <span class="lang-hinglish">Scholarship Info: Latest updates ke liye notice board check karein.</span>
+                                </p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-4">
+                                    <span class="lang-en">Star Student of the Month!</span>
+                                    <span class="lang-hi">महीने का स्टार छात्र!</span>
+                                    <span class="lang-hinglish">Month ka Star Student!</span>
+                                </h4>
+                                <img src="https://placehold.co/150x150/6366F1/FFFFFF?text=Star+Student" alt="Star Student" class="rounded-full w-32 h-32 object-cover mb-4 border-4 border-indigo-400">
+                                <p class="text-xl font-bold text-gray-900">
+                                    <span class="lang-en">Anjali Devi</span>
+                                    <span class="lang-hi">अंजलि देवी</span>
+                                    <span class="lang-hinglish">Anjali Devi</span>
+                                </p>
+                                <p class="text-gray-700 text-center">
+                                    <span class="lang-en">For outstanding academic performance and leadership.</span>
+                                    <span class="lang-hi">उत्कृष्ट शैक्षणिक प्रदर्शन और नेतृत्व के लिए।</span>
+                                    <span class="lang-hinglish">Outstanding academic performance aur leadership ke liye.</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-8 bg-white p-8 rounded-xl shadow-lg text-left">
+                            <h4 class="text-2xl font-semibold text-gray-900 mb-4">
+                                <span class="lang-en">Study Material Request</span>
+                                <span class="lang-hi">अध्ययन सामग्री अनुरोध</span>
+                                <span class="lang-hinglish">Study Material Request</span>
+                            </h4>
+                            <p class="text-gray-700 mb-4">
+                                <span class="lang-en">Request specific study materials or topics you need help with.</span>
+                                <span class="lang-hi">आपको जिन विशिष्ट अध्ययन सामग्री या विषयों में सहायता की आवश्यकता है, उनका अनुरोध करें।</span>
+                                <span class="lang-hinglish">Specific study materials ya topics ke liye request karein jinmein aapko help chahiye.</span>
+                            </p>
+                            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
+                                <div>
+                                    <label for="student-name" class="block text-lg font-medium text-gray-700 mb-2">
+                                        <span class="lang-en">Your Name</span>
+                                        <span class="lang-hi">आपका नाम</span>
+                                        <span class="lang-hinglish">Aapka Naam</span>
+                                    </label>
+                                    <input type="text" id="student-name" name="student-name" placeholder="Enter your name" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg">
+                                </div>
+                                <div>
+                                    <label for="study-topic" class="block text-lg font-medium text-gray-700 mb-2">
+                                        <span class="lang-en">Topic/Subject Needed</span>
+                                        <span class="lang-hi">आवश्यक विषय/विषय</span>
+                                        <span class="lang-hinglish">Topic/Subject Needed</span>
+                                    </label>
+                                    <input type="text" id="study-topic" name="study-topic" placeholder="e.g., Class 10 Math, History of India" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg">
+                                </div>
+                                <div>
+                                    <label for="student-email" class="block text-lg font-medium text-gray-700 mb-2">
+                                        <span class="lang-en">Your Email (for updates)</span>
+                                        <span class="lang-hi">आपका ईमेल (अपडेट के लिए)</span>
+                                        <span class="lang-hinglish">Aapka Email (updates ke liye)</span>
+                                    </label>
+                                    <input type="email" id="student-email" name="student-email" placeholder="Your Email" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg">
+                                </div>
+                                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-md shadow-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75">
+                                    <span class="lang-en">Submit Request</span>
+                                    <span class="lang-hi">अनुरोध सबमिट करें</span>
+                                    <span class="lang-hinglish">Request Submit karein</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Ask About Kabarchha Content -->
+                    <div id="ask-kabarchha-sidebar" class="sidebar-content hidden">
+                        <h3 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">
+                            <span class="lang-en">🤖 Ask About Kabarchha</span>
+                            <span class="lang-hi">🤖 कबरछा के बारे में पूछें</span>
+                            <span class="lang-hinglish">🤖 Kabarchha ke baare mein poochhein</span>
+                        </h3>
+                        <div class="bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto flex flex-col items-start">
+                            <div class="chat-bubble user">
+                                <strong class="text-indigo-700">
+                                    <span class="lang-en">User:</span>
+                                    <span class="lang-hi">उपयोगकर्ता:</span>
+                                    <span class="lang-hinglish">User:</span>
+                                </strong>
+                                <span class="lang-en">Kabarchha ka pin code kya hai?</span>
+                                <span class="lang-hi">कबरछा का पिन कोड क्या है?</span>
+                                <span class="lang-hinglish">Kabarchha ka pin code kya hai?</span>
+                            </div>
+                            <div class="chat-bubble bot">
+                                <strong class="text-green-600">
+                                    <span class="lang-en">Bot:</span>
+                                    <span class="lang-hi">बॉट:</span>
+                                    <span class="lang-hinglish">Bot:</span>
+                                </strong>
+                                <span class="lang-en">Kabarchha ka pin code hai <b>126102</b>.</span>
+                                <span class="lang-hi">कबरछा का पिन कोड है <b>126102</b>।</span>
+                                <span class="lang-hinglish">Kabarchha ka pin code hai <b>126102</b>.</span>
+                            </div>
+
+                            <div class="chat-bubble user">
+                                <strong class="text-indigo-700">
+                                    <span class="lang-en">User:</span>
+                                    <span class="lang-hi">उपयोगकर्ता:</span>
+                                    <span class="lang-hinglish">User:</span>
+                                </strong>
+                                <span class="lang-en">School ka timing kya hai?</span>
+                                <span class="lang-hi">स्कूल का समय क्या है?</span>
+                                <span class="lang-hinglish">School ka timing kya hai?</span>
+                            </div>
+                            <div class="chat-bubble bot">
+                                <strong class="text-green-600">
+                                    <span class="lang-en">Bot:</span>
+                                    <span class="lang-hi">बॉट:</span>
+                                    <span class="lang-hinglish">Bot:</span>
+                                </strong>
+                                <span class="lang-en">Primary school ka timing hai <b>8:00 AM to 2:00 PM</b>.</span>
+                                <span class="lang-hi">प्राइमरी स्कूल का समय है <b>सुबह 8:00 बजे से दोपहर 2:00 बजे तक</b>।</span>
+                                <span class="lang-hinglish">Primary school ka timing hai <b>8:00 AM to 2:00 PM</b>.</span>
+                            </div>
+
+                            <div class="chat-bubble user">
+                                <strong class="text-indigo-700">
+                                    <span class="lang-en">User:</span>
+                                    <span class="lang-hi">उपयोगकर्ता:</span>
+                                    <span class="lang-hinglish">User:</span>
+                                </strong>
+                                <span class="lang-en">Dada Kherda kahan par hai?</span>
+                                <span class="lang-hi">दादा खेड़ा कहाँ पर है?</span>
+                                <span class="lang-hinglish">Dada Kherda kahan par hai?</span>
+                            </div>
+                            <div class="chat-bubble bot">
+                                <strong class="text-green-600">
+                                    <span class="lang-en">Bot:</span>
+                                    <span class="lang-hi">बॉट:</span>
+                                    <span class="lang-hinglish">Bot:</span>
+                                </strong>
+                                <span class="lang-en">Dada Kherda Mandir gaon ke kendra mein sthit ek pavitra sthal hai.</span>
+                                <span class="lang-hi">दादा खेड़ा मंदिर गाँव के केंद्र में स्थित एक पवित्र स्थल है।</span>
+                                <span class="lang-hinglish">Dada Kherda Mandir gaon ke center mein located ek pavitra sthal hai.</span>
+                            </div>
+                        </div>
+
+                        <!-- Ask Admin Option - Enhanced -->
+                        <div class="mt-8 bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto text-left">
+                            <h4 class="text-2xl font-semibold text-gray-900 mb-4">
+                                <span class="lang-en">Didn't find your answer? Ask the Admin!</span>
+                                <span class="lang-hi">अपना उत्तर नहीं मिला? एडमिन से पूछें!</span>
+                                <span class="lang-hinglish">Apna answer nahi mila? Admin se poochhein!</span>
+                            </h4>
+                            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
+                                <div>
+                                    <label for="user-name-chatbot" class="block text-lg font-medium text-gray-700 mb-2">
+                                        <span class="lang-en">Your Name</span>
+                                        <span class="lang-hi">आपका नाम</span>
+                                        <span class="lang-hinglish">Aapka Naam</span>
+                                    </label>
+                                    <input type="text" id="user-name-chatbot" name="user-name" placeholder="Enter your name" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg">
+                                </div>
+                                <div>
+                                    <label for="subject-chatbot" class="block text-lg font-medium text-gray-700 mb-2">
+                                        <span class="lang-en">Subject of Query</span>
+                                        <span class="lang-hi">प्रश्न का विषय</span>
+                                        <span class="lang-hinglish">Question ka Subject</span>
+                                    </label>
+                                    <input type="text" id="subject-chatbot" name="subject" placeholder="e.g., Panchayat Meeting, Health Camp" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg">
+                                </div>
+                                <div>
+                                    <label for="user-email-chatbot" class="block text-lg font-medium text-gray-700 mb-2">
+                                        <span class="lang-en">Your Email (for updates)</span>
+                                        <span class="lang-hi">आपका ईमेल (अपडेट के लिए)</span>
+                                        <span class="lang-hinglish">Aapka Email (updates ke liye)</span>
+                                    </label>
+                                    <input type="email" id="user-email-chatbot" name="email" placeholder="Your Email" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg">
+                                </div>
+                                <div>
+                                    <label for="query-message-chatbot" class="block text-lg font-medium text-gray-700 mb-2">
+                                        <span class="lang-en">Your Detailed Query</span>
+                                        <span class="lang-hi">आपका विस्तृत प्रश्न</span>
+                                        <span class="lang-hinglish">Aapka Detailed Query</span>
+                                    </label>
+                                    <textarea id="query-message-chatbot" name="query-message" rows="4" placeholder="Type your question here..." required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"></textarea>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="save-query" name="save-query" class="h-5 w-5 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                    <label for="save-query" class="ml-2 block text-lg text-gray-900">
+                                        <i class="fas fa-bookmark mr-2 text-indigo-600"></i>
+                                        <span class="lang-en">Save this query for future reference</span>
+                                        <span class="lang-hi">इस प्रश्न को भविष्य के संदर्भ के लिए सहेजें</span>
+                                        <span class="lang-hinglish">Is query ko future reference ke liye save karein</span>
+                                    </label>
+                                </div>
+                                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-md shadow-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75">
+                                    <span class="lang-en">Send Query to Admin</span>
+                                    <span class="lang-hi">एडमिन को प्रश्न भेजें</span>
+                                    <span class="lang-hinglish">Query Admin ko bhejein</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Event Calendar Content -->
+                    <div id="event-calendar-sidebar" class="sidebar-content hidden">
+                        <h3 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">
+                            <span class="lang-en">Event Calendar</span>
+                            <span class="lang-hi">कार्यक्रम कैलेंडर</span>
+                            <span class="lang-hinglish">Event Calendar</span>
+                        </h3>
+                        <div class="overflow-x-auto rounded-lg shadow-md">
+                            <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                                <thead class="bg-indigo-600 text-white">
+                                    <tr>
+                                        <th class="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider rounded-tl-lg">
+                                            <span class="lang-en">Date</span>
+                                            <span class="lang-hi">दिनांक</span>
+                                            <span class="lang-hinglish">Date</span>
+                                        </th>
+                                        <th class="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider">
+                                            <span class="lang-en">Event</span>
+                                            <span class="lang-hi">कार्यक्रम</span>
+                                            <span class="lang-hinglish">Event</span>
+                                        </th>
+                                        <th class="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider rounded-tr-lg">
+                                            <span class="lang-en">Location</span>
+                                            <span class="lang-hi">स्थान</span>
+                                            <span class="lang-hinglish">Location</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200">
+                                    <tr class="hover:bg-gray-50 transition duration-150">
+                                        <td class="py-3 px-4 whitespace-nowrap text-gray-800">July 20, 2025</td>
+                                        <td class="py-3 px-4 whitespace-nowrap text-gray-700">
+                                            <span class="lang-en">School Reopening</span>
+                                            <span class="lang-hi">स्कूल फिर से खुलना</span>
+                                            <span class="lang-hinglish">School Reopening</span>
+                                        </td>
+                                        <td class="py-3 px-4 whitespace-nowrap text-gray-700">
+                                            <span class="lang-en">Village School</span>
+                                            <span class="lang-hi">ग्राम स्कूल</span>
+                                            <span class="lang-hinglish">Village School</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 transition duration-150">
+                                        <td class="py-3 px-4 whitespace-nowrap text-gray-800">July 25, 2025</td>
+                                        <td class="py-3 px-4 whitespace-nowrap text-gray-700">
+                                            <span class="lang-en">Farmers' Meet</span>
+                                            <span class="lang-hi">किसान बैठक</span>
+                                            <span class="lang-hinglish">Farmers' Meet</span>
+                                        </td>
+                                        <td class="py-3 px-4 whitespace-nowrap text-gray-700">
+                                            <span class="lang-en">Panchayat Bhawan</span>
+                                            <span class="lang-hi">पंचायत भवन</span>
+                                            <span class="lang-hinglish">Panchayat Bhawan</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 transition duration-150">
+                                        <td class="py-3 px-4 whitespace-nowrap text-gray-800">August 1, 2025</td>
+                                        <td class="py-3 px-4 whitespace-nowrap text-gray-700">
+                                            <span class="lang-en">Free Health Camp</span>
+                                            <span class="lang-hi">निःशुल्क स्वास्थ्य शिविर</span>
+                                            <span class="lang-hinglish">Free Health Camp</span>
+                                        </td>
+                                        <td class="py-3 px-4 whitespace-nowrap text-gray-700">
+                                            <span class="lang-en">Village Health Center</span>
+                                            <span class="lang-hi">ग्राम स्वास्थ्य केंद्र</span>
+                                            <span class="lang-hinglish">Village Health Center</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Villager Profiles Content -->
+                    <div id="villager-profiles-sidebar" class="sidebar-content hidden">
+                        <h3 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">
+                            <span class="lang-en">Villager Profiles & Success Stories</span>
+                            <span class="lang-hi">ग्रामवासी प्रोफाइल और सफलता की कहानियाँ</span>
+                            <span class="lang-hinglish">Villager Profiles & Success Stories</span>
+                        </h3>
+                        <p class="text-lg text-gray-700 mb-8 text-center">
+                            <span class="lang-en">Celebrating the individuals who make Kabarchha special!</span>
+                            <span class="lang-hi">कबरछा को खास बनाने वाले व्यक्तियों का सम्मान!</span>
+                            <span class="lang-hinglish">Kabarchha ko special banane wale individuals ka celebration!</span>
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center text-center">
+                                <img src="https://placehold.co/120x120/8B5CF6/FFFFFF?text=Ramesh" alt="Ramesh Profile" class="rounded-full w-24 h-24 object-cover mb-4 border-4 border-purple-400">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2">
+                                    <span class="lang-en">Ramesh Kumar</span>
+                                    <span class="lang-hi">रमेश कुमार</span>
+                                    <span class="lang-hinglish">Ramesh Kumar</span>
+                                </h4>
+                                <p class="text-gray-700 text-sm">
+                                    <span class="lang-en">Local Farmer & Innovator. Introduced new irrigation techniques.</span>
+                                    <span class="lang-hi">स्थानीय किसान और नवप्रवर्तक। नई सिंचाई तकनीकें पेश कीं।</span>
+                                    <span class="lang-hinglish">Local Farmer & Innovator. New irrigation techniques introduce ki.</span>
+                                </p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center text-center">
+                                <img src="https://placehold.co/120x120/8B5CF6/FFFFFF?text=Priya" alt="Priya Profile" class="rounded-full w-24 h-24 object-cover mb-4 border-4 border-purple-400">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2">
+                                    <span class="lang-en">Priya Sharma</span>
+                                    <span class="lang-hi">प्रिया शर्मा</span>
+                                    <span class="lang-hinglish">Priya Sharma</span>
+                                </h4>
+                                <p class="text-gray-700 text-sm">
+                                    <span class="lang-en">Teacher at Village School. Organized digital literacy workshops.</span>
+                                    <span class="lang-hi">ग्राम स्कूल में शिक्षिका। डिजिटल साक्षरता कार्यशालाओं का आयोजन किया।</span>
+                                    <span class="lang-hinglish">Village School mein Teacher. Digital literacy workshops organize kiye.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Local Businesses Content -->
+                    <div id="local-businesses-sidebar" class="sidebar-content hidden">
+                        <h3 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">
+                            <span class="lang-en">Local Businesses & Services</span>
+                            <span class="lang-hi">स्थानीय व्यवसाय और सेवाएँ</span>
+                            <span class="lang-hinglish">Local Businesses & Services</span>
+                        </h3>
+                        <p class="text-lg text-gray-700 mb-8 text-center">
+                            <span class="lang-en">Support our local economy! Find services and businesses within Kabarchha.</span>
+                            <span class="lang-hi">हमारी स्थानीय अर्थव्यवस्था का समर्थन करें! कबरछा के भीतर सेवाएँ और व्यवसाय खोजें।</span>
+                            <span class="lang-hinglish">Hamari local economy ko support karein! Kabarchha ke andar services aur businesses find karein.</span>
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <h4 class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+                                    <span class="lang-en">Sharma Kirana Store</span>
+                                    <span class="lang-hi">शर्मा किराना स्टोर</span>
+                                    <span class="lang-hinglish">Sharma Kirana Store</span>
+                                </h4>
+                                <p class="text-gray-700 mb-1"><i class="fas fa-phone-alt mr-2 text-indigo-600"></i>+91 91234 56789</p>
+                                <p class="text-gray-700"><i class="fas fa-clock mr-2 text-indigo-600"></i>9:00 AM - 9:00 PM</p>
+                                <p class="text-gray-700 text-sm mt-2">
+                                    <span class="lang-en">All daily groceries and household items.</span>
+                                    <span class="lang-hi">सभी दैनिक किराने का सामान और घरेलू सामान।</span>
+                                    <span class="lang-hinglish">All daily groceries aur household items.</span>
+                                </p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <h4 class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+                                    <span class="lang-en">Ramesh Electrician</span>
+                                    <span class="lang-hi">रमेश इलेक्ट्रीशियन</span>
+                                    <span class="lang-hinglish">Ramesh Electrician</span>
+                                </h4>
+                                <p class="text-gray-700 mb-1"><i class="fas fa-phone-alt mr-2 text-indigo-600"></i>+91 92345 67890</p>
+                                <p class="text-gray-700"><i class="fas fa-clock mr-2 text-indigo-600"></i>Available on call</p>
+                                <p class="text-gray-700 text-sm mt-2">
+                                    <span class="lang-en">House wiring, appliance repair, motor fixes.</span>
+                                    <span class="lang-hi">घर की वायरिंग, उपकरण मरम्मत, मोटर ठीक करना।</span>
+                                    <span class="lang-hinglish">House wiring, appliance repair, motor fixes.</span>
+                                </p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <h4 class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+                                    <span class="lang-en">Prakash Barber Shop</span>
+                                    <span class="lang-hi">प्रकाश नाई की दुकान</span>
+                                    <span class="lang-hinglish">Prakash Barber Shop</span>
+                                </h4>
+                                <p class="text-gray-700 mb-1"><i class="fas fa-phone-alt mr-2 text-indigo-600"></i>+91 93456 78901</p>
+                                <p class="text-gray-700"><i class="fas fa-clock mr-2 text-indigo-600"></i>10:00 AM - 8:00 PM</p>
+                                <p class="text-gray-700 text-sm mt-2">
+                                    <span class="lang-en">Haircuts, shaves, and grooming services.</span>
+                                    <span class="lang-hi">बाल कटवाना, दाढ़ी बनाना और ग्रूमिंग सेवाएँ।</span>
+                                    <span class="lang-hinglish">Haircuts, shaves, aur grooming services.</span>
+                                </p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <h4 class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+                                    <span class="lang-en">Jai Kisan Tractor Repair</span>
+                                    <span class="lang-hi">जय किसान ट्रैक्टर मरम्मत</span>
+                                    <span class="lang-hinglish">Jai Kisan Tractor Repair</span>
+                                </h4>
+                                <p class="text-gray-700 mb-1"><i class="fas fa-phone-alt mr-2 text-indigo-600"></i>+91 94567 89012</p>
+                                <p class="text-gray-700"><i class="fas fa-clock mr-2 text-indigo-600"></i>8:00 AM - 6:00 PM</p>
+                                <p class="text-gray-700 text-sm mt-2">
+                                    <span class="lang-en">Tractor and agricultural machinery repair.</span>
+                                    <span class="lang-hi">ट्रैक्टर और कृषि मशीनरी मरम्मत।</span>
+                                    <span class="lang-hinglish">Tractor aur agricultural machinery repair.</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-8 text-center">
+                            <p class="text-lg text-gray-700 italic">
+                                <span class="lang-en">Want to list your business here? Contact the admin!</span>
+                                <span class="lang-hi">अपना व्यवसाय यहाँ सूचीबद्ध करना चाहते हैं? एडमिन से संपर्क करें!</span>
+                                <span class="lang-hinglish">Apna business yahan list karna chahte hain? Admin se contact karein!</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Community Forum Content -->
+                    <div id="community-forum-sidebar" class="sidebar-content hidden">
+                        <h3 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">
+                            <span class="lang-en">Community Forum & Discussion</span>
+                            <span class="lang-hi">सामुदायिक मंच और चर्चा</span>
+                            <span class="lang-hinglish">Community Forum & Discussion</span>
+                        </h3>
+                        <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                            <p class="text-lg text-gray-700 mb-6">
+                                <span class="lang-en">This section will soon be an interactive forum for villagers to discuss local issues, share ideas, and connect with each other.</span>
+                                <span class="lang-hi">यह खंड जल्द ही ग्रामीणों के लिए स्थानीय मुद्दों पर चर्चा करने, विचार साझा करने और एक-दूसरे से जुड़ने के लिए एक इंटरैक्टिव मंच होगा।</span>
+                                <span class="lang-hinglish">Yeh section jald hi villagers ke liye ek interactive forum hoga local issues discuss karne, ideas share karne, aur ek doosre se connect karne ke liye.</span>
+                            </p>
+                            <p class="text-md text-gray-600 italic">
+                                <span class="lang-en">Stay tuned for updates! (Requires backend development)</span>
+                                <span class="lang-hi">अपडेट के लिए बने रहें! (बैकएंड विकास की आवश्यकता है)</span>
+                                <span class="lang-hinglish">Updates ke liye bane rahein! (Requires backend development)</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Lost & Found Content -->
+                    <div id="lost-found-sidebar" class="sidebar-content hidden">
+                        <h3 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">
+                            <span class="lang-en">Lost & Found</span>
+                            <span class="lang-hi">खोया पाया</span>
+                            <span class="lang-hinglish">Lost & Found</span>
+                        </h3>
+                        <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                            <p class="text-lg text-gray-700 mb-6">
+                                <span class="lang-en">Have you lost something or found an item in the village? Post here to help reunite items with their owners.</span>
+                                <span class="lang-hi">क्या आपने गाँव में कुछ खो दिया है या कोई वस्तु मिली है? वस्तुओं को उनके मालिकों से मिलाने में मदद करने के लिए यहाँ पोस्ट करें।</span>
+                                <span class="lang-hinglish">Kya aapne gaon mein kuch kho diya hai ya koi item mila hai? Yahan post karein items ko unke owners se reunite karne ke liye.</span>
+                            </p>
+                            <p class="text-md text-gray-600 italic">
+                                <span class="lang-en">This section will be dynamic soon! (Requires backend development)</span>
+                                <span class="lang-hi">यह खंड जल्द ही गतिशील होगा! (बैकएंड विकास की आवश्यकता है)</span>
+                                <span class="lang-hinglish">Yeh section jald hi dynamic hoga! (Requires backend development)</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Government Schemes Hub Content -->
+                    <div id="govt-schemes-sidebar" class="sidebar-content hidden">
+                        <h3 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">
+                            <span class="lang-en">Government Schemes Hub</span>
+                            <span class="lang-hi">सरकारी योजनाएं हब</span>
+                            <span class="lang-hinglish">Government Schemes Hub</span>
+                        </h3>
+                        <p class="text-lg text-gray-700 mb-8 text-center">
+                            <span class="lang-en">Detailed information on various government schemes beneficial for villagers.</span>
+                            <span class="lang-hi">ग्रामीणों के लिए लाभकारी विभिन्न सरकारी योजनाओं पर विस्तृत जानकारी।</span>
+                            <span class="lang-hinglish">Villagers ke liye beneficial various government schemes par detailed information.</span>
+                        </p>
+                        <div class="space-y-6 text-left">
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-3">
+                                    <span class="lang-en">Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)</span>
+                                    <span class="lang-hi">प्रधानमंत्री किसान सम्मान निधि (पीएम-किसान)</span>
+                                    <span class="lang-hinglish">Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)</span>
+                                </h4>
+                                <p class="text-gray-700 mb-2">
+                                    <span class="lang-en">Provides financial assistance of ₹6,000 per year to eligible farmer families.</span>
+                                    <span class="lang-hi">पात्र किसान परिवारों को प्रति वर्ष ₹6,000 की वित्तीय सहायता प्रदान करता है।</span>
+                                    <span class="lang-hinglish">Eligible farmer families ko ₹6,000 per year ki financial assistance provide karta hai.</span>
+                                </p>
+                                <p class="text-sm text-gray-600">
+                                    <span class="lang-en">Eligibility: Small and marginal farmer families with cultivable land.</span>
+                                    <span class="lang-hi">पात्रता: खेती योग्य भूमि वाले छोटे और सीमांत किसान परिवार।</span>
+                                    <span class="lang-hinglish">Eligibility: Cultivable land wale small aur marginal farmer families.</span>
+                                </p>
+                                <a href="#" class="mt-3 inline-block text-indigo-600 hover:text-indigo-800 font-medium">
+                                    <span class="lang-en">Learn More</span>
+                                    <span class="lang-hi">और जानें</span>
+                                    <span class="lang-hinglish">Aur jaanein</span>
+                                </a>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-3">
+                                    <span class="lang-en">Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (AB-PMJAY)</span>
+                                    <span class="lang-hi">आयुष्मान भारत प्रधानमंत्री जन आरोग्य योजना (एबी-पीएमजेएवाई)</span>
+                                    <span class="lang-hinglish">Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (AB-PMJAY)</span>
+                                </h4>
+                                <p class="text-gray-700 mb-2">
+                                    <span class="lang-en">Provides a health cover of ₹5 lakh per family per year for secondary and tertiary care hospitalization.</span>
+                                    <span class="lang-hi">माध्यमिक और तृतीयक देखभाल अस्पताल में भर्ती के लिए प्रति परिवार प्रति वर्ष ₹5 लाख का स्वास्थ्य कवर प्रदान करता है।</span>
+                                    <span class="lang-hinglish">Secondary aur tertiary care hospitalization ke liye ₹5 lakh per family per year ka health cover provide karta hai.</span>
+                                </p>
+                                <p class="text-sm text-gray-600">
+                                    <span class="lang-en">Eligibility: Based on deprivation and occupational criteria from SECC 2011.</span>
+                                    <span class="lang-hi">पात्रता: एसईसीसी 2011 से अभाव और व्यावसायिक मानदंडों पर आधारित।</span>
+                                    <span class="lang-hinglish">Eligibility: SECC 2011 se deprivation aur occupational criteria par based.</span>
+                                </p>
+                                <a href="#" class="mt-3 inline-block text-indigo-600 hover:text-indigo-800 font-medium">
+                                    <span class="lang-en">Learn More</span>
+                                    <span class="lang-hi">और जानें</span>
+                                    <span class="lang-hinglish">Aur jaanein</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Donation & Support Content -->
+                    <div id="donation-sidebar" class="sidebar-content hidden">
+                        <h3 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">
+                            <span class="lang-en">Donation & Community Support</span>
+                            <span class="lang-hi">दान और सामुदायिक समर्थन</span>
+                            <span class="lang-hinglish">Donation & Community Support</span>
+                        </h3>
+                        <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                            <p class="text-lg text-gray-700 mb-6">
+                                <span class="lang-en">Support village development projects and initiatives. Your contribution helps build a better Kabarchha!</span>
+                                <span class="lang-hi">गाँव के विकास परियोजनाओं और पहलों का समर्थन करें। आपका योगदान एक बेहतर कबरछा बनाने में मदद करता है!</span>
+                                <span class="lang-hinglish">Village development projects aur initiatives ko support karein. Aapka contribution ek better Kabarchha banane mein help karta hai!</span>
+                            </p>
+                            <div class="space-y-4 mb-6">
+                                <p class="text-xl font-semibold text-gray-900">
+                                    <span class="lang-en">UPI ID: kabarchha.gram@upi</span>
+                                    <span class="lang-hi">यूपीआई आईडी: kabarchha.gram@upi</span>
+                                    <span class="lang-hinglish">UPI ID: kabarchha.gram@upi</span>
+                                </p>
+                                <p class="text-xl font-semibold text-gray-900">
+                                    <span class="lang-en">Bank Account: XXXX XXXX XXXX 1234 (IFSC: ABCD0001234)</span>
+                                    <span class="lang-hi">बैंक खाता: XXXX XXXX XXXX 1234 (आईएफएससी: ABCD0001234)</span>
+                                    <span class="lang-hinglish">Bank Account: XXXX XXXX XXXX 1234 (IFSC: ABCD0001234)</span>
+                                </p>
+                            </div>
+                            <p class="text-md text-gray-600 italic">
+                                <span class="lang-en">For more details or to contribute in kind, please contact the Panchayat office.</span>
+                                <span class="lang-hi">अधिक जानकारी के लिए या वस्तु के रूप में योगदान करने के लिए, कृपया पंचायत कार्यालय से संपर्क करें।</span>
+                                <span class="lang-hinglish">More details ke liye ya in kind contribute karne ke liye, Panchayat office se contact karein.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Farmer's Corner Content -->
+                    <div id="farmers-corner-sidebar" class="sidebar-content hidden">
+                        <h3 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">
+                            <span class="lang-en">Farmer's Corner</span>
+                            <span class="lang-hi">किसान कोना</span>
+                            <span class="lang-hinglish">Kisan Corner</span>
+                        </h3>
+                        <p class="text-lg text-gray-700 mb-8 text-center">
+                            <span class="lang-en">Essential information and tips for our hardworking farmers.</span>
+                            <span class="lang-hi">हमारे मेहनती किसानों के लिए आवश्यक जानकारी और सुझाव।</span>
+                            <span class="lang-hinglish">Hamare hardworking farmers ke liye essential information aur tips.</span>
+                        </p>
+                        <div class="space-y-6 text-left">
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-3">
+                                    <span class="lang-en">Latest Weather Advisory for Crops</span>
+                                    <span class="lang-hi">फसलों के लिए नवीनतम मौसम सलाह</span>
+                                    <span class="lang-hinglish">Crops ke liye Latest Weather Advisory</span>
+                                </h4>
+                                <p class="text-gray-700 mb-2">
+                                    <span class="lang-en">Expect light rainfall next week. Prepare for sowing of Rabi crops.</span>
+                                    <span class="lang-hi">अगले सप्ताह हल्की बारिश की उम्मीद है। रबी फसलों की बुवाई के लिए तैयारी करें।</span>
+                                    <span class="lang-hinglish">Next week light rainfall expect karein. Rabi crops ki sowing ke liye prepare karein.</span>
+                                </p>
+                                <p class="text-sm text-gray-600">
+                                    <span class="lang-en">Source: Local Agricultural Department</span>
+                                    <span class="lang-hi">स्रोत: स्थानीय कृषि विभाग</span>
+                                    <span class="lang-hinglish">Source: Local Agricultural Department</span>
+                                </p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-3">
+                                    <span class="lang-en">Tips for Soil Health Management</span>
+                                    <span class="lang-hi">मृदा स्वास्थ्य प्रबंधन के लिए सुझाव</span>
+                                    <span class="lang-hinglish">Soil Health Management ke liye Tips</span>
+                                </h4>
+                                <p class="text-gray-700 mb-2">
+                                    <span class="lang-en">Regular soil testing, crop rotation, and organic manure application.</span>
+                                    <span class="lang-hi">नियमित मृदा परीक्षण, फसल चक्र और जैविक खाद का प्रयोग।</span>
+                                    <span class="lang-hinglish">Regular soil testing, crop rotation, aur organic manure application.</span>
+                                </p>
+                                <a href="#" class="mt-3 inline-block text-indigo-600 hover:text-indigo-800 font-medium">
+                                    <span class="lang-en">Read Detailed Guide</span>
+                                    <span class="lang-hi">विस्तृत मार्गदर्शिका पढ़ें</span>
+                                    <span class="lang-hinglish">Detailed Guide padhein</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Promoted Content Display -->
+                    <div id="promoted-content-sidebar" class="sidebar-content hidden">
+                        <h3 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">
+                            <span class="lang-en">Promoted Videos & Channels</span>
+                            <span class="lang-hi">प्रचारित वीडियो और चैनल</span>
+                            <span class="lang-hinglish">Promoted Videos & Channels</span>
+                        </h3>
+                        <p class="text-lg text-gray-700 mb-8 text-center">
+                            <span class="lang-en">Check out these videos and channels promoted by our community members!</span>
+                            <span class="lang-hi">हमारे समुदाय के सदस्यों द्वारा प्रचारित इन वीडियो और चैनलों को देखें!</span>
+                            <span class="lang-hinglish">Hamare community members dwara promoted in videos aur channels ko check karein!</span>
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Example Promoted Video 1 -->
+                            <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-3">
+                                    <span class="lang-en">Village Life Documentary</span>
+                                    <span class="lang-hi">ग्राम जीवन वृत्तचित्र</span>
+                                    <span class="lang-hinglish">Village Life Documentary</span>
+                                </h4>
+                                <div class="aspect-w-16 aspect-h-9 mb-4">
+                                    <!-- Placeholder for YouTube Embed -->
+                                    <iframe class="w-full h-48 rounded-md" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <p class="text-gray-700 text-sm mb-2">
+                                    <span class="lang-en">By: Local Creator (Rakesh Sharma)</span>
+                                    <span class="lang-hi">द्वारा: स्थानीय निर्माता (राकेश शर्मा)</span>
+                                    <span class="lang-hinglish">By: Local Creator (Rakesh Sharma)</span>
+                                </p>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 transform hover:scale-105">
+                                    <i class="fab fa-youtube mr-2"></i>
+                                    <span class="lang-en">Watch Now</span>
+                                    <span class="lang-hi">अभी देखें</span>
+                                    <span class="lang-hinglish">Abhi dekhein</span>
+                                </a>
+                            </div>
+                            <!-- Example Promoted Video 2 -->
+                            <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-3">
+                                    <span class="lang-en">Farming Techniques in Haryana</span>
+                                    <span class="lang-hi">हरियाणा में खेती की तकनीकें</span>
+                                    <span class="lang-hinglish">Haryana mein Farming Techniques</span>
+                                </h4>
+                                <div class="aspect-w-16 aspect-h-9 mb-4">
+                                    <!-- Placeholder for Another YouTube Embed -->
+                                    <iframe class="w-full h-48 rounded-md" src="https://www.youtube.com/embed/another_video_id" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <p class="text-gray-700 text-sm mb-2">
+                                    <span class="lang-en">By: Kisan Gyan Channel</span>
+                                    <span class="lang-hi">द्वारा: किसान ज्ञान चैनल</span>
+                                    <span class="lang-hinglish">By: Kisan Gyan Channel</span>
+                                </p>
+                                <a href="https://www.youtube.com/channel/your_channel_id" target="_blank" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 transform hover:scale-105">
+                                    <i class="fab fa-youtube mr-2"></i>
+                                    <span class="lang-en">Visit Channel</span>
+                                    <span class="lang-hi">चैनल पर जाएँ</span>
+                                    <span class="lang-hinglish">Channel par jaaein</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feedback Form Content -->
+                    <div id="feedback-sidebar" class="sidebar-content hidden">
+                        <h3 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">
+                            <span class="lang-en">Share Your Feedback</span>
+                            <span class="lang-hi">अपनी प्रतिक्रिया साझा करें</span>
+                            <span class="lang-hinglish">Apna Feedback share karein</span>
+                        </h3>
+                        <div class="bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
+                            <form class="space-y-6">
+                                <div>
+                                    <label for="name" class="block text-lg font-medium text-gray-700 text-left mb-2">
+                                        <span class="lang-en">Your Name</span>
+                                        <span class="lang-hi">आपका नाम</span>
+                                        <span class="lang-hinglish">Aapka Naam</span>
+                                    </label>
+                                    <input type="text" id="name" name="name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg" placeholder="Enter your name">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-lg font-medium text-gray-700 text-left mb-2">
+                                        <span class="lang-en">Your Email</span>
+                                        <span class="lang-hi">आपका ईमेल</span>
+                                        <span class="lang-hinglish">Aapka Email</span>
+                                    </label>
+                                    <input type="email" id="email" name="email" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg" placeholder="Enter your email">
+                                </div>
+                                <div>
+                                    <label for="feedback-message" class="block text-lg font-medium text-gray-700 text-left mb-2">
+                                        <span class="lang-en">Your Feedback/Suggestion</span>
+                                        <span class="lang-hi">आपकी प्रतिक्रिया/सुझाव</span>
+                                        <span class="lang-hinglish">Aapka Feedback/Suggestion</span>
+                                    </label>
+                                    <textarea id="feedback-message" name="message" rows="5" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg" placeholder="Share your thoughts..."></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-md shadow-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75">
+                                    <span class="lang-en">Submit Feedback</span>
+                                    <span class="lang-hi">प्रतिक्रिया सबमिट करें</span>
+                                    <span class="lang-hinglish">Feedback Submit karein</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Contact & Location Content -->
+                    <div id="contact-sidebar" class="sidebar-content hidden">
+                        <h3 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-8 text-center">
+                            <span class="lang-en">Contact & Location</span>
+                            <span class="lang-hi">संपर्क और स्थान</span>
+                            <span class="lang-hinglish">Contact & Location</span>
+                        </h3>
+                        <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                            <div class="md:w-1/2 bg-white p-8 rounded-xl shadow-lg">
+                                <h4 class="text-2xl font-semibold text-gray-900 mb-4">
+                                    <span class="lang-en">Get in Touch</span>
+                                    <span class="lang-hi">संपर्क करें</span>
+                                    <span class="lang-hinglish">Contact karein</span>
+                                </h4>
+                                <p class="text-lg text-gray-700 mb-2">
+                                    <span class="lang-en">Email: info.kabarchha@example.com</span>
+                                    <span class="lang-hi">ईमेल: info.kabarchha@example.com</span>
+                                    <span class="lang-hinglish">Email: info.kabarchha@example.com</span>
+                                </p>
+                                <p class="text-lg text-gray-700">
+                                    <span class="lang-en">Phone: +91 98765 43210</span>
+                                    <span class="lang-hi">फ़ोन: +91 98765 43210</span>
+                                    <span class="lang-hinglish">Phone: +91 98765 43210</span>
+                                </p>
+                            </div>
+                            <div class="md:w-1/2 bg-white p-8 rounded-xl shadow-lg">
+                                <h4 class="text-2xl font-semibold text-gray-900 mb-4">
+                                    <span class="lang-en">Find Us on Map</span>
+                                    <span class="lang-hi">नक्शे पर हमें खोजें</span>
+                                    <span class="lang-hinglish">Map par humein khojein</span>
+                                </h4>
+                                <!-- Embedded Google Map for Jind, Haryana (approximate location for Kabarchha) -->
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111244.6467389657!2d76.12644212500001!3d29.197946999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d96d910244795%3A0x86708468b61c8724!2sJind%2C%20Haryana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                                    width="100%"
+                                    height="250"
+                                    style="border:0;"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    class="rounded-lg shadow-md"
+                                ></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promote Your Content Section (Monetization) -->
+    <section id="promote-content" class="py-16 md:py-24 px-6 md:px-12 bg-blue-50 rounded-xl shadow-xl mx-auto my-8 max-w-6xl animate-slideUp">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-bold text-indigo-700 mb-12">
+                <span class="lang-en">Promote Your Video / YouTube Channel</span>
+                <span class="lang-hi">अपने वीडियो / यूट्यूब चैनल का प्रचार करें</span>
+                <span class="lang-hinglish">Apna Video / YouTube Channel Promote karein</span>
+            </h2>
+            <p class="text-lg text-gray-700 mb-8">
+                <span class="lang-en">Want to reach the Kabarchha community with your talent or message? Promote your video or YouTube channel here!</span>
+                <span class="lang-hi">अपनी प्रतिभा या संदेश के साथ कबरछा समुदाय तक पहुँचना चाहते हैं? अपने वीडियो या यूट्यूब चैनल का यहाँ प्रचार करें!</span>
+                <span class="lang-hinglish">Kabarchha community tak apni talent ya message pahunchana chahte hain? Apna video ya YouTube channel yahan promote karein!</span>
+            </p>
+            <div class="bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
+                <form class="space-y-6">
+                    <div>
+                        <label for="promoter-name" class="block text-lg font-medium text-gray-700 text-left mb-2">
+                            <span class="lang-en">Your Name</span>
+                            <span class="lang-hi">आपका नाम</span>
+                            <span class="lang-hinglish">Aapka Naam</span>
+                        </label>
+                        <input type="text" id="promoter-name" name="promoter-name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg" placeholder="Enter your name" required>
+                    </div>
+                    <div>
+                        <label for="youtube-link" class="block text-lg font-medium text-gray-700 text-left mb-2">
+                            <span class="lang-en">Video / YouTube Channel Link</span>
+                            <span class="lang-hi">वीडियो / यूट्यूब चैनल लिंक</span>
+                            <span class="lang-hinglish">Video / YouTube Channel Link</span>
+                        </label>
+                        <input type="url" id="youtube-link" name="youtube-link" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg" placeholder="e.g., https://youtube.com/yourchannel" required>
+                    </div>
+                    <div>
+                        <label for="promotion-message" class="block text-lg font-medium text-gray-700 text-left mb-2">
+                            <span class="lang-en">Short Message for Promotion</span>
+                            <span class="lang-hi">प्रचार के लिए छोटा संदेश</span>
+                            <span class="lang-hinglish">Promotion ke liye Short Message</span>
+                        </label>
+                        <textarea id="promotion-message" name="promotion-message" rows="3" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg" placeholder="Describe your content briefly..."></textarea>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-lg font-medium text-gray-700 mb-2">
+                            <span class="lang-en">Promotion Fee: ₹500/week (placeholder)</span>
+                            <span class="lang-hi">प्रचार शुल्क: ₹500/सप्ताह (प्लेसहोल्डर)</span>
+                            <span class="lang-hinglish">Promotion Fee: ₹500/week (placeholder)</span>
+                        </p>
+                        <p class="text-lg font-medium text-gray-700">
+                            <span class="lang-en">Next Available Slot: August 1, 2025 (placeholder)</span>
+                            <span class="lang-hi">अगला उपलब्ध स्लॉट: 1 अगस्त, 2025 (प्लेसहोल्डर)</span>
+                            <span class="lang-hinglish">Next Available Slot: 1 August, 2025 (placeholder)</span>
+                        </p>
+                        <p class="text-sm text-gray-600 mt-2">
+                            <span class="lang-en">Our team will contact you for payment and scheduling after submission.</span>
+                            <span class="lang-hi">सबमिशन के बाद हमारी टीम भुगतान और शेड्यूलिंग के लिए आपसे संपर्क करेगी।</span>
+                            <span class="lang-hinglish">Submission ke baad hamari team payment aur scheduling ke liye aapse contact karegi.</span>
+                        </p>
+                    </div>
+                    <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-md shadow-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75">
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        <span class="lang-en">Submit for Promotion</span>
+                        <span class="lang-hi">प्रचार के लिए सबमिट करें</span>
+                        <span class="lang-hinglish">Promotion ke liye Submit karein</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-8 px-6 md:px-12 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center">
+            <p class="text-sm md:text-base mb-4">
+                <span class="lang-en">&copy; 2025 Mera Kabarchha. All rights reserved.</span>
+                <span class="lang-hi">&copy; 2025 मेरा कबरछा। सर्वाधिकार सुरक्षित।</span>
+                <span class="lang-hinglish">&copy; 2025 Mera Kabarchha. All rights reserved.</span>
+            </p>
+            <div class="flex flex-wrap justify-center space-x-4 mb-4">
+                <a href="#weather-widget" class="text-gray-300 hover:text-white transition duration-300">
+                    <span class="lang-en">Weather</span>
+                    <span class="lang-hi">मौसम</span>
+                    <span class="lang-hinglish">Mausam</span>
+                </a>
+                <a href="#about" class="text-gray-300 hover:text-white transition duration-300">
+                    <span class="lang-en">About</span>
+                    <span class="lang-hi">के बारे में</span>
+                    <span class="lang-hinglish">About</span>
+                </a>
+                <a href="#population-data" class="text-gray-300 hover:text-white transition duration-300">
+                    <span class="lang-en">Population</span>
+                    <span class="lang-hi">जनसंख्या</span>
+                    <span class="lang-hinglish">Jansankhya</span>
+                </a>
+                <a href="#connectivity" class="text-gray-300 hover:text-white transition duration-300">
+                    <span class="lang-en">Connectivity</span>
+                    <span class="lang-hi">कनेक्टिविटी</span>
+                    <span class="lang-hinglish">Connectivity</span>
+                </a>
+                <a href="#sarpanch" class="text-gray-300 hover:text-white transition duration-300">
+                    <span class="lang-en">Sarpanch</span>
+                    <span class="lang-hi">सरपंच</span>
+                    <span class="lang-hinglish">Sarpanch</span>
+                </a>
+                <a href="#news-notices" class="text-gray-300 hover:text-white transition duration-300">
+                    <span class="lang-en">News</span>
+                    <span class="lang-hi">समाचार</span>
+                    <span class="lang-hinglish">Samachar</span>
+                </a>
+                <a href="#explore-more" class="text-gray-300 hover:text-white transition duration-300">
+                    <span class="lang-en">Explore More</span>
+                    <span class="lang-hi">और जानें</span>
+                    <span class="lang-hinglish">Aur jaanein</span>
+                </a>
+                <a href="#promote-content" class="text-gray-300 hover:text-white transition duration-300">
+                    <span class="lang-en">Promote</span>
+                    <span class="lang-hi">प्रचार करें</span>
+                    <span class="lang-hinglish">Promote karein</span>
+                </a>
+            </div>
+            <!-- WhatsApp Share Button -->
+            <a href="https://api.whatsapp.com/send?text=Check%20out%20Mera%20Kabarchha%20Village%20Website%3A%20[YourWebsiteLinkHere]" target="_blank" class="inline-flex items-center bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-full shadow-md transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75">
+                <i class="fab fa-whatsapp mr-2"></i>
+                <span class="lang-en">Share on WhatsApp</span>
+                <span class="lang-hi">व्हाट्सएप पर साझा करें</span>
+                <span class="lang-hinglish">WhatsApp par share karein</span>
+            </a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Language Toggle and Sidebar Navigation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const langToggle = document.getElementById('langToggle');
+            const langElements = document.querySelectorAll('.lang-en, .lang-hi, .lang-hinglish');
+            const languages = ['en', 'hi', 'hinglish'];
+            let currentLangIndex = 0; // 0: English, 1: Hindi, 2: Hinglish
+
+            // Function to update visibility of language-specific elements
+            function updateLanguageDisplay() {
+                langElements.forEach(el => {
+                    if (el.classList.contains(`lang-${languages[currentLangIndex]}`)) {
+                        el.style.display = 'block';
+                    } else {
+                        el.style.display = 'none';
+                    }
+                });
+            }
+
+            // Event listener for the language toggle button
+            langToggle.addEventListener('click', () => {
+                currentLangIndex = (currentLangIndex + 1) % languages.length;
+                updateLanguageDisplay();
+            });
+
+            // Initial display update when the page loads
+            updateLanguageDisplay();
+
+            // Sidebar Navigation Logic
+            const sidebarNavItems = document.querySelectorAll('.sidebar-nav-item');
+            const sidebarContents = document.querySelectorAll('.sidebar-content');
+            const sidebarNav = document.querySelector('.sidebar-nav');
+            const sidebarMainContent = document.querySelector('.sidebar-main-content');
+            const backToOverviewBtn = document.getElementById('backToOverviewBtn');
+
+            function showSection(sectionId) {
+                // Hide all content sections
+                sidebarContents.forEach(content => {
+                    content.classList.add('hidden');
+                });
+
+                // Show the selected content section
+                const selectedContent = document.getElementById(sectionId);
+                if (selectedContent) {
+                    selectedContent.classList.remove('hidden');
+                }
+
+                // Adjust layout for "page-like" feel
+                sidebarNav.classList.add('hidden'); // Hide the sidebar itself
+                sidebarMainContent.classList.remove('md:w-3/4'); // Remove responsive width class
+                sidebarMainContent.classList.add('w-full'); // Make content full width
+                backToOverviewBtn.classList.remove('hidden'); // Show back button
+            }
+
+            function showOverview() {
+                // Show the sidebar
+                sidebarNav.classList.remove('hidden');
+                sidebarMainContent.classList.add('md:w-3/4'); // Restore responsive width
+                sidebarMainContent.classList.remove('w-full'); // Remove full width
+                backToOverviewBtn.classList.add('hidden'); // Hide back button
+
+                // Deactivate all sidebar items
+                sidebarNavItems.forEach(nav => nav.classList.remove('active'));
+                
+                // Show the default section (Photo Gallery) and activate its item
+                const defaultSectionId = 'photo-gallery-sidebar';
+                sidebarContents.forEach(content => {
+                    if (content.id === defaultSectionId) {
+                        content.classList.remove('hidden');
+                    } else {
+                        content.classList.add('hidden');
+                    }
+                });
+                document.querySelector(`[data-section="${defaultSectionId}"]`).classList.add('active');
+            }
+
+            sidebarNavItems.forEach(item => {
+                item.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent default link behavior
+                    sidebarNavItems.forEach(nav => nav.classList.remove('active')); // Deactivate all
+                    this.classList.add('active'); // Activate clicked item
+                    const targetSectionId = this.dataset.section;
+                    showSection(targetSectionId);
+                });
+            });
+
+            // Event listener for the "Back to Overview" button
+            backToOverviewBtn.addEventListener('click', () => {
+                showOverview();
+            });
+
+            // Show the default section (Photo Gallery) on load
+            showOverview(); // Call showOverview to set initial state correctly
+        });
+    </script>
+</body>
+</html>
